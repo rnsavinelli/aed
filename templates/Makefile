@@ -2,7 +2,7 @@
 # Roberto Nicolás Savinelli <rsavinelli@est.frba.utn.edu.ar>
 
 CC = g++
-CFLAGS = -std=c++17 -Wall -pedantic
+CFLAGS = -std=c++17 -Wall -pedantic-errors
 INCLUDES = -I ./inc/
 SOURCES = ./src/*.cpp
 

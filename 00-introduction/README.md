@@ -1,4 +1,4 @@
-# Clase 00 - Introducción
+# [AED](https://github.com/rnsavinelli/aed) | Clase 00 - Introducción
 
 Sobre definiciones de algoritmo, dato, estructuras de datos, variables y
 operadores en C++;
@@ -14,7 +14,7 @@ llevar a cabo otras tareas o actividades. [<sup>1</sup>](https://dle.rae.es/?w=a
 ## Dato
 
 Un dato es la unidad mínima que compone la información. Alternativamente, en
-computación, al dato se lo conoce como la expresión general que describe las características de las entidades sobre las cuales opera un algoritmo. 
+computación, al dato se lo conoce como la expresión general que describe las características de las entidades sobre las cuales opera un algoritmo.
 
 **Tipo de Dato:** Un espacio en memorias con restricciones que define un conjunto de valores posibles y un conjunto de operaciones (para un objeto).
 
@@ -56,7 +56,7 @@ int dato {0};
 
 Por estructura de datos se entiende un formato de organización, gestión y
 almacenamiento de datos que permiten un eficiente acceso y modificación de los
-mismos. 
+mismos.
 
 ## Operadores
 
@@ -70,7 +70,7 @@ A continuación se listan los operadores disponibles en C++, así como también 
 
 ### De asignación
 
-+ Asignar: '=' 
++ Asignar: '='
 + Asignar y sumar: '+='
 + Asignar y restar: '-='
 

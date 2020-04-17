@@ -1,7 +1,7 @@
 # [AED](https://github.com/rnsavinelli/aed) | Clase 00 - Introducción
 
 Sobre definiciones de algoritmo, dato, estructuras de datos, variables y
-operadores en C++;
+operadores en C++.
 
 ## Algoritmo
 

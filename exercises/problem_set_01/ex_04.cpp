@@ -39,8 +39,9 @@ int main(int argc, char **argv)
     int unitsperbox {0};
 
     get_data(&units, &unitsperbox);
+    boxes = get_boxes(units, unitsperbox);
 
-    cout << "Boxes: " << (boxes = get_boxes(units, unitsperbox)) << endl;
+    cout << "Boxes: " << boxes << endl;
 
 	return 0;
 }

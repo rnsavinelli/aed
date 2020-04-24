@@ -61,6 +61,6 @@ void swap_values(double *foo, double *bar)
 
 void print_values(double foo, double bar)
 {
-    cout << endl << "PRIMERA variable: " << foo << endl;
-    cout << "SEGUNDA variable: " << bar << endl;
+	cout << endl << "PRIMERA variable: " << foo << endl;
+	cout << "SEGUNDA variable: " << bar << endl;
 }

@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 		"Sunday"
 	};
 
-    cout << "[STATUS] Enter a number between 1 to 7 to display what day of the week it is." << endl;
+	cout << "[STATUS] Enter a number between 1 to 7 to display what day of the week it is." << endl;
 
 	do {
 		if (flag == true) {

@@ -34,14 +34,14 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    int units {0};
-    int boxes {0};
-    int unitsperbox {0};
+	int units {0};
+	int boxes {0};
+	int unitsperbox {0};
 
-    get_data(&units, &unitsperbox);
-    boxes = get_boxes(units, unitsperbox);
+	get_data(&units, &unitsperbox);
+	boxes = get_boxes(units, unitsperbox);
 
-    cout << "Boxes: " << boxes << endl;
+	cout << "Boxes: " << boxes << endl;
 
 	return 0;
 }
@@ -49,37 +49,37 @@ int main(int argc, char **argv)
 /* retrieves data from the user */
 void get_data(int *units, int *unitsperbox)
 {
-    cout << "Units available: ";
-    cin  >> (*units);
+	cout << "Units available: ";
+	cin  >> (*units);
 
-    cout << "Units per box: ";
-    cin  >> (*unitsperbox);
+	cout << "Units per box: ";
+	cin  >> (*unitsperbox);
 }
 
 /* calculates the amount of boxes needed */
 unsigned int get_boxes(int units, int unitsperbox)
 {
-    int n_boxes = 0;
+	int n_boxes = 0;
 
-    if(units <= 0 || unitsperbox <= 0) {
-        n_boxes = 0;
-    }
+	if(units <= 0 || unitsperbox <= 0) {
+		n_boxes = 0;
+	}
 
-    else if(units <= unitsperbox) {
-        n_boxes = 1;
-    }
+	else if(units <= unitsperbox) {
+		n_boxes = 1;
+	}
 
-    else {
-        while((units -= unitsperbox) >= 0) {
-            n_boxes++;
-        }
+	else {
+		while((units -= unitsperbox) >= 0) {
+			n_boxes++;
+		}
 
-        if(units % unitsperbox != 0) {
-            n_boxes++;
-        }
-    }
+		if(units % unitsperbox != 0) {
+			n_boxes++;
+		}
+	}
 
-    return n_boxes;
+	return n_boxes;
 }
 
 

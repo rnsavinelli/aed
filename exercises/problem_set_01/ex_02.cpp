@@ -1,4 +1,7 @@
-/* main.cpp
+/* ex_02.cpp
+ *
+ * Dado un No del 1 al 7 determinar (mostrar) el nombre del día de la semana que corresponde.
+ * Si el nro está fuera de rango infórmelo como un error de ingreso de datos.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -22,13 +25,50 @@
 */
 
 #include <iostream>
-#include "main.hpp"
-#include "log.hpp"
+#include <string>
+
+enum DAYS {
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY,
+	SUNDAY,
+	N_DAYS
+};
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    log(LOG_STATUS, "Hello world!");
-    return 0;
+	int day = 0;
+	bool flag = false;
+
+	string week[N_DAYS] {
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
+		"Sunday"
+	};
+
+    cout << "[STATUS] Enter a number between 1 to 7 to display what day of the week it is." << endl;
+
+	do {
+		if (flag == true) {
+			cout << "[WARNING] Invalid input." << endl;
+		}
+
+		cout << "[STATUS] Input number (1-7): ";
+		cin  >> day;
+
+		day--;
+
+	} while((flag = (day < MONDAY || day > SUNDAY)));
+
+	cout << "[STATUS] " << week[day] << endl;
+	return 0;
 }

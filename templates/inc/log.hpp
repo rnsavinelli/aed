@@ -1,4 +1,4 @@
-/* main.cpp
+/* log.hpp
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -21,14 +21,17 @@
  * SOFTWARE.
 */
 
+#ifndef LOG_HPP
+
+#include <string>
 #include <iostream>
-#include "main.hpp"
-#include "log.hpp"
 
 using namespace std;
 
-int main(int argc, char **argv)
-{
-    log(LOG_STATUS, "Hello world!");
-    return 0;
-}
+#define LOG_ERROR   -1
+#define LOG_STATUS   0
+#define LOG_WARNING  1
+
+void log(int type, string message);
+
+#endif /* LOG_HPP */

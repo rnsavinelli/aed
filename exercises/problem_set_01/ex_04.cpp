@@ -1,4 +1,8 @@
-/* main.cpp
+/* ex_04.cpp
+ *
+ * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
+ * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
+ * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -22,13 +26,60 @@
 */
 
 #include <iostream>
-#include "main.hpp"
-#include "log.hpp"
+
+void get_data(int *units, int *unitsperbox);
+unsigned int get_boxes(int units, int unitsperbox);
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    log(LOG_STATUS, "Hello world!");
-    return 0;
+    int units {0};
+    int boxes {0};
+    int unitsperbox {0};
+
+    get_data(&units, &unitsperbox);
+
+    cout << "Boxes: " << (boxes = get_boxes(units, unitsperbox)) << endl;
+
+	return 0;
 }
+
+/* retrieves data from the user */
+void get_data(int *units, int *unitsperbox)
+{
+    cout << "Units available: ";
+    cin  >> (*units);
+
+    cout << "Units per box: ";
+    cin  >> (*unitsperbox);
+}
+
+/* calculates the amount of boxes needed */
+unsigned int get_boxes(int units, int unitsperbox)
+{
+    int n_boxes = 0;
+
+    if(units <= 0 || unitsperbox <= 0) {
+        n_boxes = 0;
+    }
+
+    else if(units <= unitsperbox) {
+        n_boxes = 1;
+    }
+
+    else {
+        while((units -= unitsperbox) >= 0) {
+            n_boxes++;
+        }
+
+        if(units % unitsperbox != 0) {
+            n_boxes++;
+        }
+    }
+
+    return n_boxes;
+}
+
+
+

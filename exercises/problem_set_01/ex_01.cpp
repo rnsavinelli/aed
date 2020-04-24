@@ -1,4 +1,8 @@
-/* main.cpp
+/* ex_01.cpp
+ *
+ * El siguiente programa pide un valor de longitud en mm al usuario
+ * para devolverlo convertido a pulgadas.
+ * (1" = 25.4 mm)
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -22,13 +26,18 @@
 */
 
 #include <iostream>
-#include "main.hpp"
-#include "log.hpp"
+
+#define mm_to_inches(value_in_mm) (double) value_in_mm / 25.4
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    log(LOG_STATUS, "Hello world!");
-    return 0;
+	double x;
+
+	cout << "Enter a value in mm to convert to inches: ";
+	cin  >> x;
+	cout << "Result: " << mm_to_inches(x) << " inches" << endl;
+
+	return 0;
 }

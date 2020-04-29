@@ -28,39 +28,39 @@
 
 using namespace std;
 
-void get_values(double *foo, double *bar);
-void swap_values(double *foo, double *bar);
-void print_values(double foo, double bar);
+void values_get(double  *x, double *y);
+void values_swap(double *x, double *y);
+void values_print(double x, double y);
 
 int main(int argc, char **argv)
 {
 	double a, b;
 
-	get_values(&a, &b);
-	swap_values(&a, &b);
-	print_values(a, b);
+	values_get(&a, &b);
+	values_swap(&a, &b);
+	values_print(a, b);
 
 	return 0;
 }
 
-void get_values(double *foo, double *bar)
+void values_get(double *x, double *y)
 {
-	cout << "Ingrese un valor para la PRIMERA variable: ";
-	cin  >> (*foo);
-	cout << "Ingrese un valor para la SEGUNDA variable: ";
-	cin  >> (*bar);
+	cout << "Enter a value for the FIRST variable: ";
+	cin  >> (*x);
+	cout << "Enter a value for the SECOND variable: ";
+	cin  >> (*y);
 }
 
-void swap_values(double *foo, double *bar)
+void values_swap(double *x, double *y)
 {
 	double aux;
-	aux = *foo;
-	*foo = *bar;
-	*bar = aux;
+	aux = *x;
+	*x = *y;
+	*y = aux;
 }
 
-void print_values(double foo, double bar)
+void values_print(double x, double y)
 {
-	cout << endl << "PRIMERA variable: " << foo << endl;
-	cout << "SEGUNDA variable: " << bar << endl;
+	cout << "FIRST variable: " << x << endl;
+	cout << "SECOND variable: " << y << endl;
 }

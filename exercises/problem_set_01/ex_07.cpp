@@ -1,8 +1,7 @@
-/* ex_04.cpp
+/* ex_07.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Leer 2 valores y mostrar el mayor de ellos, si son iguales mostrar cualquiera
+ * de los dos.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -27,60 +26,46 @@
 
 #include <iostream>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
-
 using namespace std;
+
+void data_get(float *x, float *y);
+void data_eval(float x, float y);
 
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	float x, y;
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
-
-	cout << "Boxes: " << boxes << endl;
+	data_get(&x, &y);
+	cout << "For the values (x = " << x << ", y = " << y << "): " << endl;
+	data_eval(x, y);
 
 	return 0;
 }
 
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
+void data_get(float *x, float *y)
 {
-	cout << "Units available: ";
-	cin  >> (*units);
-
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
+	cout << "Enter a value for the FIRST variable: ";
+	cin  >> *x;
+	cout << "Enter a value for the SECOND variable: ";
+	cin  >> *y;
 }
 
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
+void data_eval(float x, float y)
 {
-	int n_boxes {0};
+	string statement;
+	statement.clear();
 
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
+	if(x > y) {
+		statement = "MORE than";
 	}
 
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
+	else if (x < y) {
+		statement = "LESS than";
 	}
 
 	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
+		statement = "EQUAL to";
 	}
 
-	return n_boxes;
+	cout << "[" << x << " is " << statement << " " << y << "]" << endl;
 }
-
-
-

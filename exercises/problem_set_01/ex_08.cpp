@@ -1,8 +1,8 @@
-/* ex_04.cpp
+/* ex_08.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Ingresar tres valores enteros que representan los valores de cada lado de un triángulo.
+ * determinar e informar si el triángulo es equilátero (3 lados iguales), isósceles
+ * (2 lados iguales), o escaleno (3 lados distinto).
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -27,60 +27,53 @@
 
 #include <iostream>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
-
 using namespace std;
+
+void get_data(float *side_1, float *side_2, float *side_3);
+string get_classification(float side_1, float side_2, float side_3);
 
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	float side_1, side_2, side_3;
+	string result;
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
+	get_data(&side_1, &side_2, &side_3);
+	result = get_classification(side_1, side_2, side_3);
 
-	cout << "Boxes: " << boxes << endl;
+	cout << "Classification: " << result << endl;
 
 	return 0;
 }
 
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
+void get_data(float *side_1, float *side_2, float *side_3)
 {
-	cout << "Units available: ";
-	cin  >> (*units);
+	do {
+		cout << "Enter a valid value for the FIRST side: ";
+		cin  >> *side_1;
+	} while(*side_1 <= 0);
 
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
+	do {
+		cout << "Enter a valid value for the SECOND side: ";
+		cin  >> *side_2;
+	} while(*side_2 <= 0);
+
+	do {
+		cout << "Enter a valid value for the THIRD side: ";
+		cin  >> *side_3;
+	} while(*side_3 <= 0);
 }
 
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
+string get_classification(float side_1, float side_2, float side_3)
 {
-	int n_boxes {0};
-
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
+	if (side_1 == side_2 && side_1 == side_3) {
+		return "equilateral";
 	}
 
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
+	else if (side_1 == side_2 || side_1 == side_3 || side_2 == side_3) {
+		return "isosceles";
 	}
 
 	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
+		return "scalene";
 	}
-
-	return n_boxes;
 }
-
-
-

@@ -1,8 +1,7 @@
-/* ex_04.cpp
+/* ex_09.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Ingresar 3 valores enteros, escribirlos primero en el orden que fueron
+ * ingresados y luego mostrarlos ordenardos en forma creciente.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -27,60 +26,58 @@
 
 #include <iostream>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
+#define DATA_LENGTH 3
 
 using namespace std;
 
+void data_get(int *dataptr, int length);
+void data_print(int *dataptr, int length);
+void data_sort(int *dataptr, int length);
+
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	int dataptr[DATA_LENGTH];
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
+	data_get(dataptr, DATA_LENGTH);
 
-	cout << "Boxes: " << boxes << endl;
+	cout << ":: Unsorted data:" << endl;
+	data_print(dataptr, DATA_LENGTH);
+
+	data_sort(dataptr, DATA_LENGTH);
+
+	cout << ":: Sorted data:" << endl;
+	data_print(dataptr, DATA_LENGTH);
 
 	return 0;
 }
 
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
+void data_get(int *dataptr, int length)
 {
-	cout << "Units available: ";
-	cin  >> (*units);
-
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
+	for(int i = 0; i < length; i++) {
+		cout << "Enter a value for variable number " << i << ": ";
+		cin  >> *(dataptr+i);
+	}
 }
 
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
+void data_print(int *dataptr, int length)
 {
-	int n_boxes {0};
-
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
+	for(int i = 0; i < length; i++) {
+		cout << "Variable " << i << ": " << *(dataptr+i) << endl;
 	}
-
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
-	}
-
-	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
-	}
-
-	return n_boxes;
 }
 
+/* basic implementation of bubble sort */
+void data_sort(int *dataptr, int length)
+{
+	int pass, hold;
 
-
+	for (pass = 1; pass < length; pass++) {
+		for (int i = 0; i < length - 1; i ++) {
+			if (dataptr[i] > dataptr[i + 1]) {
+				hold = dataptr[i];
+				dataptr[i] = dataptr[i + 1];
+				dataptr[i + 1] = hold;
+			}
+		}
+	}
+}

@@ -1,8 +1,7 @@
-/* ex_04.cpp
+/* ex_06.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Dado como dato el valor del lado de un cuadrado calcular su perímetro,
+ * su superficie, e informar los mismos con carteles aclaratorios
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -27,60 +26,22 @@
 
 #include <iostream>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
+#define compute_perimeter(lenght) (float) 4 * lenght
+#define compute_area(lenght) (float) lenght * lenght
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	float x;
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
+	do {
+		cout << "Enter a valid value for one of the sides of a square: ";
+		cin  >> x;
+	} while(x < 0);
 
-	cout << "Boxes: " << boxes << endl;
+	cout << "Perimeter: " << compute_perimeter(x) << endl
+	     << "Area: " << compute_area(x) << endl;
 
 	return 0;
 }
-
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
-{
-	cout << "Units available: ";
-	cin  >> (*units);
-
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
-}
-
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
-{
-	int n_boxes {0};
-
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
-	}
-
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
-	}
-
-	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
-	}
-
-	return n_boxes;
-}
-
-
-

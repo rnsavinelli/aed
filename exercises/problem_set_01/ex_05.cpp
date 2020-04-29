@@ -1,8 +1,7 @@
-/* ex_04.cpp
+/* ex_05.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Dadas las medidas de dos ángulos de un triángulo, determinar la medida del
+ * tercero e informar el resultado.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -27,60 +26,50 @@
 
 #include <iostream>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
+/* From Wikipedia:
+ *
+ * Three given angles form a triangle if and only if both of these conditions hold:
+ * (a) each of the angles is positive
+ * (b) the angles sum to 180 degrees
+ *
+ * https://en.wikipedia.org/wiki/Triangle#Conditions_on_the_angles
+ *
+ * Therefore, we define:
+ */
+
+#define MAX_VALUE 180
+
+void get_two(float *alpha, float *beta);
+float compute_third(float alpha, float beta);
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	float alpha, beta, gamma;
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
+	get_two(&alpha, &beta);
+	gamma = compute_third(alpha, beta);
 
-	cout << "Boxes: " << boxes << endl;
+	cout << "THIRD angle: " << gamma << endl;
 
 	return 0;
 }
 
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
+void get_two(float *alpha, float *beta)
 {
-	cout << "Units available: ";
-	cin  >> (*units);
+	do {
+		cout << "Enter a valid value for the FIRST angle: ";
+		cin  >> *alpha;
+	} while((*alpha <= 0) || (*alpha >= MAX_VALUE));
 
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
+	do {
+		cout << "Enter a valid value for the SECOND angle: ";
+		cin  >> *beta;
+	} while((*beta <= 0) || (*beta >= (MAX_VALUE - *alpha)));
 }
 
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
+float compute_third(float alpha, float beta)
 {
-	int n_boxes {0};
-
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
-	}
-
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
-	}
-
-	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
-	}
-
-	return n_boxes;
+	return (float) MAX_VALUE - alpha - beta;
 }
-
-
-

@@ -1,8 +1,11 @@
-/* ex_04.cpp
+/* ex_13.cpp
  *
- * Ingresar dos valores enteros, el primero corresponde a la cantidad de bultos en stock y el
- * segundo a la cantidad de bultos que se pueden colocar en una caja. Calcule cuantas cajas
- * completas se pueden llenar con los bultos disponibles y cuantos bultos sueltos quedarían
+ * Cuenta la leyenda de la creación del ajedrez que el sabio pidió al rey como recompensa 1 grano
+ * de arroz por el primer casillero, 2 por el segundo, 4 por el tercero, etc. Calcule el total de
+ * granos de arroz en el tablero. Nota: la idea es armar un ciclo que acumule el arroz de cada
+ * casillero, sin embargo por fórmula sabemos que la cantidad pedida es 2 64 -1 por ello deberá usar
+ * variables tipo unsigned long si su sistema es de 64 bits o unsigned long long si su
+ * sistema es de 32 bits para poder alojar el valor requerido en forma correcta.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *
@@ -26,61 +29,31 @@
 */
 
 #include <iostream>
+#include <math.h>
 
-void get_data(int *units, int *unitsperbox);
-unsigned int get_boxes(int units, int unitsperbox);
+#define TOTAL_SQUARES 64
 
 using namespace std;
 
+unsigned long get_rice();
+
 int main(int argc, char **argv)
 {
-	int units {0};
-	int boxes {0};
-	int unitsperbox {0};
+	unsigned long rice;
 
-	get_data(&units, &unitsperbox);
-	boxes = get_boxes(units, unitsperbox);
-
-	cout << "Boxes: " << boxes << endl;
+	rice = get_rice();
+	cout << rice << endl;
 
 	return 0;
 }
 
-/* retrieves data from the user */
-void get_data(int *units, int *unitsperbox)
+unsigned long get_rice()
 {
-	cout << "Units available: ";
-	cin  >> (*units);
+	unsigned long rice = 0;
 
-	cout << "Units per box: ";
-	cin  >> (*unitsperbox);
+	for (int i = 0 ; i < TOTAL_SQUARES ; i++) {
+		rice += (unsigned long) pow(2.0, (double) i);
+	}
+
+	return rice;
 }
-
-/* calculates the amount of boxes needed */
-unsigned int get_boxes(int units, int unitsperbox)
-{
-	int n_boxes {0};
-
-	if(units <= 0 || unitsperbox <= 0) {
-		n_boxes = 0;
-	}
-
-	else if(units <= unitsperbox) {
-		n_boxes = 1;
-	}
-
-	else {
-		while((units -= unitsperbox) >= 0) {
-			n_boxes++;
-		}
-
-		if(units % unitsperbox != 0) {
-			n_boxes++;
-		}
-	}
-
-	return n_boxes;
-}
-
-
-

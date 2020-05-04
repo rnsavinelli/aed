@@ -29,7 +29,7 @@
 */
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 #define TOTAL_SQUARES 64
 

@@ -33,95 +33,96 @@ bool is_leap(int year)
 }
 
 /* prompts user for the date field by field */
-void date_get(date_t *date) {
-    int n_days {0};
+void date_get(date_t *date)
+{
+	int n_days {0};
 
-    cout << "Enter the YEAR: ";
-    cin  >> date->year;
+	cout << "Enter the YEAR: ";
+	cin  >> date->year;
 
-    do {
-        cout << "Enter the MONTH (1, 12): ";
-        cin  >> date->month;
-    } while(date->month > DECEMBER || date->month < JANUARY );
+	do {
+		cout << "Enter the MONTH (1, 12): ";
+		cin  >> date->month;
+	} while(date->month > DECEMBER || date->month < JANUARY );
 
-    switch (date->month) {
-        case FEBRUARY:
-            is_leap(date->year) ? n_days = 29 : n_days = 28;
-            break;
+	switch (date->month) {
+	case FEBRUARY:
+		is_leap(date->year) ? n_days = 29 : n_days = 28;
+		break;
 
-        case APRIL:
-        case JUNE:
-        case SEPTEMBER:
-        case NOVEMBER:
-            n_days = 30;
-            break;
+	case APRIL:
+	case JUNE:
+	case SEPTEMBER:
+	case NOVEMBER:
+		n_days = 30;
+		break;
 
-        default:
-            n_days = 31;
-            break;
-    }
+	default:
+		n_days = 31;
+		break;
+	}
 
-    do {
-        cout << "Enter the DAY (1, " << n_days << "): ";
-        cin  >> date->day;
-    } while((date->day > n_days) || (date->day < 1));
+	do {
+		cout << "Enter the DAY (1, " << n_days << "): ";
+		cin  >> date->day;
+	} while((date->day > n_days) || (date->day < 1));
 }
 
 /* returns DD/MM/YYYY */
-string date_format_alt(date_t date) {
-    string output_date;
-    output_date.clear();
+string date_format_alt(date_t date)
+{
+	string output_date;
+	output_date.clear();
 
-    if (date.day < 10) {
-        output_date += "0";
-    }
-    output_date += to_string(date.day);
+	if (date.day < 10) {
+		output_date += "0";
+	}
+	output_date += to_string(date.day);
 
-    output_date += "/";
+	output_date += "/";
 
-    if(date.month < 10) {
-        output_date += "0";
-    }
-    output_date += to_string(date.month);
+	if(date.month < 10) {
+		output_date += "0";
+	}
+	output_date += to_string(date.month);
 
-    output_date += "/";
+	output_date += "/";
 
-    if (abs(date.year) < 10) {
-        output_date += "000";
-    }
+	if (abs(date.year) < 10) {
+		output_date += "000";
+	}
 
-    else if (abs(date.year) < 100) {
-        output_date += "00";
-    }
+	else if (abs(date.year) < 100) {
+		output_date += "00";
+	}
 
-    else if (abs(date.year) < 1000) {
-        output_date += "0";
-    }
+	else if (abs(date.year) < 1000) {
+		output_date += "0";
+	}
 
-    output_date += to_string(date.year);
+	output_date += to_string(date.year);
 
-    return output_date;
+	return output_date;
 }
 
 /* returns YYYYMMDD */
-int date_format(date_t date) {
-    int yyyymmdd {0};
+int date_format(date_t date)
+{
+	int yyyymmdd {0};
 
-    if ((date.day % 10) != 0) {
-        yyyymmdd += date.day;
-    }
-    else {
-        yyyymmdd += date.day*10;
-    }
+	if ((date.day % 10) != 0) {
+		yyyymmdd += date.day;
+	} else {
+		yyyymmdd += date.day*10;
+	}
 
-    if ((date.month % 1000) != 0){
-        yyyymmdd += date.month*100;
-    }
-    else {
-        yyyymmdd += date.month*1000;
-    }
+	if ((date.month % 1000) != 0) {
+		yyyymmdd += date.month*100;
+	} else {
+		yyyymmdd += date.month*1000;
+	}
 
-    yyyymmdd += date.year*10000;
+	yyyymmdd += date.year*10000;
 
-    return yyyymmdd;
+	return yyyymmdd;
 }

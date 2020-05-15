@@ -37,12 +37,12 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    date_t date {0, 0, 0};
+	date_t date {0, 0, 0};
 
-    date_get(&date);
+	date_get(&date);
 
-    cout << endl << "YYYYMMDD: " << setfill('0') << setw(8) << date_format(date) << endl;
-    cout << "DD/MM/YYYY: " << date_format_alt(date) << endl;
+	cout << endl << "YYYYMMDD: " << setfill('0') << setw(8) << date_format(date) << endl;
+	cout << "DD/MM/YYYY: " << date_format_alt(date) << endl;
 
 	return 0;
 }

@@ -29,24 +29,24 @@
 using namespace std;
 
 enum MONTHS {
-    JANUARY = 1,
-    FEBRUARY,
-    MARCH,
-    APRIL,
-    MAY,
-    JUNE,
-    JULY,
-    AUGUST,
-    SEPTEMBER,
-    OCTOBER,
-    NOVEMBER,
-    DECEMBER,
+	JANUARY = 1,
+	FEBRUARY,
+	MARCH,
+	APRIL,
+	MAY,
+	JUNE,
+	JULY,
+	AUGUST,
+	SEPTEMBER,
+	OCTOBER,
+	NOVEMBER,
+	DECEMBER,
 };
 
 typedef struct date {
-    int year;
-    int month;
-    int day;
+	int year;
+	int month;
+	int day;
 } date_t;
 
 void date_get(date_t *date);

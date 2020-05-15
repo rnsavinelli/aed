@@ -39,9 +39,14 @@ int main(int argc, char **argv)
 {
 	int x {0};
 
-	cout << "This program calculates the factorial of a number." << endl;
-	cout << "Enter a number: ";
-	cin  >> x;
+    do {
+    	cout << "Enter a positive number to calculate the its Fibonacci: ";
+	    cin  >> x;
+
+        if (x < 0) {
+            cout << "Invalid input." << endl;
+        }
+    } while(x < 0);
 
 	cout << "Result: " << fibonacci(x) << endl;
 

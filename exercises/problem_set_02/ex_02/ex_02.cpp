@@ -37,8 +37,10 @@ void date_get(date_t *date)
 {
 	int n_days {0};
 
-	cout << "Enter the YEAR: ";
-	cin  >> date->year;
+	do {
+		cout << "Enter the YEAR: ";
+		cin  >> date->year;
+	} while(date->year < 0);
 
 	do {
 		cout << "Enter the MONTH (1, 12): ";

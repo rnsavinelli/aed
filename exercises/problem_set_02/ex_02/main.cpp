@@ -6,6 +6,7 @@
  * formato fecha, es decir, algo del estilo 25/5/2019.
  * Nota: la variante indicada NO es importante desde el punto de vista del curso, es para quienes
  * quieran profundizar un poco más en las particularidades de la biblioteca estándar de C++.
+ * Nota: tome los años mayores que cero para simplificar la resolución.
  *
  * Copyright (c) 2020 Savinelli Roberto Nicolás <rsavinelli@est.frba.utn.edu.ar>
  *

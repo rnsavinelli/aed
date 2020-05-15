@@ -1,6 +1,7 @@
 # [AED](https://github.com/rnsavinelli/aed) | Clase 02 - Funciones
 
-Sobre funciones, pasaje por valor, pasaje por referencia, *scope*.
+Sobre funciones, pasaje por valor, pasaje por referencia, *scope* y
+recursividad.
 
 ## Funciones
 
@@ -146,3 +147,57 @@ almacenamiento *static*, entonces no es posible usarla desde otro
 fuente, ni aún con *extern*. En este marco, la declaración de variables
 globales en archivos de tipo *header* permite el uso de *extern* por
 sobre *statics*.
+
+## Recusividad
+
+Denominase función recursiva a toda función que, en su código, se llama a si
+misma una o más veces.
+
+Es necesario tener un caso base, es decir, un caso que limite la recursión y
+servirá al resto de los casos para construir la solución.
+
+Los algoritmos recursivos suelen proveer soluciones elegantes y simples de entender, pero
+no eficientes. Es por esto que se los suele convertir a una versión iterativa equivalente.
+
+Ejemplo de implementación:
+
+``` cpp
+#include <iostream>
+
+using namespace std;
+
+int sigma(int n);
+
+int main(int argc, char **argv)
+{
+	int x {0};
+
+	cout << "This program adds the numbers from 1 to n." << endl;
+	cout << "Enter a value for n: ";
+	cin  >> x;
+
+	cout << "Result: " << sigma(x) << endl;
+
+	return 0;
+}
+
+int sigma(int n)
+{
+	return (n <= 0) ? 0 : n + sigma(n-1);
+}
+```
+
+Alternativamente, la resolución de la función sigma de manera iterativa sería:
+
+``` cpp
+int sigma(int n)
+{
+    int sum {0};
+
+    for (int i {1}; i <= n; i++) {
+        sum += i;
+    }
+
+    return sum;
+}
+```

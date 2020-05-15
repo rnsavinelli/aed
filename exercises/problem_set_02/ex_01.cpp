@@ -30,8 +30,19 @@
 
 using namespace std;
 
-bool is_leap(int year);
-string get_result(int year);
+bool is_leap(int year)
+{
+	if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) {
+		return true;
+	}
+
+	else return false;
+}
+
+auto get_result(int year)
+{
+	return is_leap(year) ? "TRUE" : "FALSE";
+}
 
 int main(int argc, char **argv)
 {
@@ -42,18 +53,4 @@ int main(int argc, char **argv)
 	cout << "Result: " << get_result(year) << endl;
 
 	return 0;
-}
-
-bool is_leap(int year)
-{
-	if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) {
-		return true;
-	}
-
-	else return false;
-}
-
-string get_result(int year)
-{
-	return is_leap(year) ? "TRUE" : "FALSE";
 }

@@ -31,6 +31,7 @@
 using namespace std;
 
 int sigma(int n);
+int sigma_alt(int n);
 
 int main(int argc, char **argv)
 {
@@ -47,5 +48,16 @@ int main(int argc, char **argv)
 
 int sigma(int n)
 {
-	return (n <= 0) ? 0 : n + sigma (n-1);
+	return (n <= 0) ? 0 : n + sigma(n-1);
+}
+
+int sigma_alt(int n)
+{
+    int sum {0};
+
+    for (int i {1}; i <= n; i++) {
+        sum += i;
+    }
+
+    return sum;
 }

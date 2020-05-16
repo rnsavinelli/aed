@@ -30,30 +30,56 @@
 using namespace std;
 
 long int factorial(int n);
+long int factorial_alt(int n);
 
 int main(int argc, char **argv)
 {
 	int x {0};
 
 	cout << "This program calculates the factorial of a number." << endl;
-	cout << "Enter a number: ";
-	cin  >> x;
+    do {
+        cout << "Enter a positive number: ";
+    	cin  >> x;
+    } while (x < 0);
 
-	cout << "Result: " << factorial(x) << endl;
+	cout << "Result: " << factorial_alt(x) << endl;
 
 	return 0;
 }
 
+/* calculates the factorial of a number, if negative the returns -1 */
+/* recursive */
 long int factorial(int n)
 {
-    if (n > 0 ) {
+    if (n > 0) {
         return n == 1 ? 1 : n * factorial(n-1);
     }
 
     else if (n < 0) {
-        return n == -1 ? -1 : n * factorial(n+1);
+        return -1;
     }
-
     /* else if n == 0,  return 1*/
     else return 1;
 }
+
+/* calculates the factorial of a number, if negative the returns -1 */
+/* iterative */
+long int factorial_alt(int n)
+{
+    if (n > 0) {
+        int factorial {1};
+
+        for(int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+
+        return factorial;
+    }
+
+    else if (n < 0) {
+        return -1;
+    }
+
+    else return 1;
+}
+

@@ -41,11 +41,11 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	date_t date_orig {0, 0, 0};
-    date_t date_new  {0, 0, 0};
+    	date_t date_new  {0, 0, 0};
 
 	date_get(&date_orig);
 	cout << endl << "YYYYMMDD: " << setfill('0') << setw(8) << date_format(date_orig);
-    date_new = date_copy(date_orig);
+    	date_new = date_copy(date_orig);
 	cout << endl << "DD/MM/YYYY: " << date_format_alt(date_new) << endl;
 
 	return 0;

@@ -34,6 +34,7 @@
 using namespace std;
 
 long int fibonacci(int n);
+long int fibonacci_alt(int n);
 
 int main(int argc, char **argv)
 {
@@ -48,7 +49,8 @@ int main(int argc, char **argv)
         }
     } while(x < 0);
 
-	cout << "Result: " << fibonacci(x) << endl;
+	//cout << "Iterative result: " << fibonacci_alt(x) << endl;
+	cout << "Recursive result: " << fibonacci(x) << endl;
 
 	return 0;
 }
@@ -60,4 +62,22 @@ long int fibonacci(int n)
     }
 
     else return fibonacci(n-1) + fibonacci(n-2);
+}
+
+long int fibonacci_alt(int n)
+{
+    if (n == 0 || n == 1) {
+        return n;
+    }
+
+    int fib {0}, fa {1}, fb {1};
+
+    while(n > 2) {
+        fib = fa + fb;
+        fa = fb;
+        fb = fib;
+        n--;
+    }
+
+    return fib;
 }

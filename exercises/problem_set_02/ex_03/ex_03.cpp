@@ -70,14 +70,15 @@ void date_get(date_t *date)
 	} while((date->day > n_days) || (date->day < 1));
 }
 
-date_t date_copy(date_t date) {
-    date_t date_new {0, 0, 0};
+date_t date_copy(date_t date)
+{
+	date_t date_new {0, 0, 0};
 
-    date_new.year = date.year;
-    date_new.month = date.month;
-    date_new.day = date.day;
+	date_new.year = date.year;
+	date_new.month = date.month;
+	date_new.day = date.day;
 
-    return date_new;
+	return date_new;
 }
 
 /* returns DD/MM/YYYY */

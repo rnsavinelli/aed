@@ -40,14 +40,14 @@ int main(int argc, char **argv)
 {
 	int x {0};
 
-    do {
-    	cout << "Enter a positive number to calculate the its Fibonacci: ";
-	    cin  >> x;
+	do {
+		cout << "Enter a positive number to calculate the its Fibonacci: ";
+		cin  >> x;
 
-        if (x < 0) {
-            cout << "Invalid input." << endl;
-        }
-    } while(x < 0);
+		if (x < 0) {
+			cout << "Invalid input." << endl;
+		}
+	} while(x < 0);
 
 	//cout << "Iterative result: " << fibonacci_alt(x) << endl;
 	cout << "Recursive result: " << fibonacci(x) << endl;
@@ -57,27 +57,27 @@ int main(int argc, char **argv)
 
 long int fibonacci(int n)
 {
-    if (n == 0 || n == 1) {
-        return n;
-    }
+	if (n == 0 || n == 1) {
+		return n;
+	}
 
-    else return fibonacci(n-1) + fibonacci(n-2);
+	else return fibonacci(n-1) + fibonacci(n-2);
 }
 
 long int fibonacci_alt(int n)
 {
-    if (n == 0 || n == 1) {
-        return n;
-    }
+	if (n == 0 || n == 1) {
+		return n;
+	}
 
-    int fib {0}, fa {1}, fb {1};
+	int fib {0}, fa {1}, fb {1};
 
-    while(n > 2) {
-        fib = fa + fb;
-        fa = fb;
-        fb = fib;
-        n--;
-    }
+	while(n > 2) {
+		fib = fa + fb;
+		fa = fb;
+		fb = fib;
+		n--;
+	}
 
-    return fib;
+	return fib;
 }

@@ -36,8 +36,8 @@ int main(int argc, char **argv)
 {
 	int temperature = 0;
 
-    cout << "This program performs the temperature conversion from Fahrenheit to Celsius.";
-    cout << endl << "Enter a value: ";
+	cout << "This program performs the temperature conversion from Fahrenheit to Celsius.";
+	cout << endl << "Enter a value: ";
 	cin  >> temperature;
 
 	cout << "Result: " << fahrtocel(temperature) << endl;
@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-float fahrtocel(float fahrenheit) {
-    return (5 * (fahrenheit - 32) / 9);
+float fahrtocel(float fahrenheit)
+{
+	return (5 * (fahrenheit - 32) / 9);
 }

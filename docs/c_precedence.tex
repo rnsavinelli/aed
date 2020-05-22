@@ -1,0 +1,62 @@
+\documentclass[letter]{article}
+
+\usepackage[english]{babel}
+
+\pagenumbering{gobble}
+
+\usepackage{amstext} % \text macro
+\usepackage{array}   % \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\usepackage[labelfont=bf]{caption} % bold caption label
+
+\usepackage{hyperref}
+
+\hypersetup{
+    pdfauthor = {R. Nicolás Savinelli},
+    pdftitle = {C: Precedence and Associativity of Operators},
+}
+
+\title{\bf{Precedence and Associativity of Operators in C}}
+\author{R. Nicolás Savinelli}
+
+\begin{document}
+
+\maketitle{}
+
+Operators are listed in order of precedence (highest to lowest).
+Their associativity indicates in what order operators of equal precedence in
+an expression are applied.
+
+\begin{table}[!h]
+\begin{tabular}{| L | c |}
+\hline
+\text{\bf{Column A}} & \bf{Associativity} \\ \hline
+(\ ) \ \ [\ ] \ \ -> \ \ . & left to right \\ \hline
+! \ \ \sim \ \ ++ \ \ -- \ \ + \ \ - \ \ *\mathtt{(type)} \ \ \mathtt{sizeof} & right to left \\ \hline
+* \ \ / \ \ \% & left to right \\ \hline
++ \ \ - \ \ & left to right \\ \hline
+<< \ \ >> \ \ & left to right \\ \hline
+< \ \ <= \ \ > \ \ >= & left to right \\ \hline
+== \ \ != \ \ & left to right \\ \hline
+\& & left to right \\ \hline
+\hat{} & left to right \\ \hline
+| & left to right \\ \hline
+\&\& & left to right \\ \hline
+|| & left to right \\ \hline
+?: & right to left \\ \hline
+= \ \ += \ \ -= \ \ *= \ \ /= \ \ \%= \ \ \&= \ \ \hat{}= \ \ |= \ \ <<= \ \ >>= & right to left \\ \hline
+, & left to right \\ \hline
+\hline
+\end{tabular}
+\caption{Precedence and Associativity of Operators}
+\end{table}
+
+\noindent
+Regarding in-depth descriptions, and applied examples, of each and every
+operator consider consulting: \\
+
+\noindent
+The C Programming Language ({\it{2nd Edition}}), by Brian W. Kernighan and
+Dennis M. Ritchie. Prentice Hall, 1988. ISBN 0131103628
+
+\end{document}

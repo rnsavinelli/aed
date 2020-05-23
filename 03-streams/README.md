@@ -171,9 +171,9 @@ inputpos = file.tellg();
 
 Definida como:
 
-```
-(1)	istream& seekg (streampos pos);
-(2)	istream& seekg (streamoff off, ios_base::seekdir way);
+``` cpp
+/*(1)*/	istream& seekg (streampos pos);
+/*(2)*/	istream& seekg (streamoff off, ios_base::seekdir way);
 ```
 
 Donde `pos` es la posición del puntero **g**, `off` es el *offset* relativo al
@@ -205,9 +205,9 @@ outputpos = file.tellp();
 
 Definida como:
 
-```
-(1)	ostream& seekp (streampos pos);
-(2)	ostream& seekp (streamoff off, ios_base::seekdir way);
+``` cpp
+/*(1)*/	ostream& seekp (streampos pos);
+/*(2)*/	ostream& seekp (streamoff off, ios_base::seekdir way);
 ```
 
 Donde `pos` es la posición del puntero **p**, `off` es el *offset* relativo al

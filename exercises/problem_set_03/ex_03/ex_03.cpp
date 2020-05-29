@@ -45,74 +45,75 @@ void parity_split(vector<int> data, vector<int> &odd, vector<int> &even);
 
 int main(int argc, char **argv)
 {
-    vector<int> data, odd, even;
+	vector<int> data, odd, even;
 
-    if (data_load(data, DATA_PATH) == ERROR) {
-        cout << "An error was produced loading " << DATA_PATH << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_load(data, DATA_PATH) == ERROR) {
+		cout << "An error was produced loading " << DATA_PATH << endl;
+		cout << "Aborting execution." << endl;
+	}
 
-    parity_split(data, odd, even);
+	parity_split(data, odd, even);
 
-    if (data_store(odd, "odd.data") == ERROR) {
-        cout << "An error was produced writing " << ODD_DATA_PATH << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_store(odd, "odd.data") == ERROR) {
+		cout << "An error was produced writing " << ODD_DATA_PATH << endl;
+		cout << "Aborting execution." << endl;
+	}
 
-    if (data_store(even, "even.data") == ERROR) {
-        cout << "An error was produced writing " << EVEN_DATA_PATH << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_store(even, "even.data") == ERROR) {
+		cout << "An error was produced writing " << EVEN_DATA_PATH << endl;
+		cout << "Aborting execution." << endl;
+	}
 
 	return 0;
 }
 
 int data_load(vector<int> &data, string src)
 {
-    ifstream file;
-    int carry;
+	ifstream file;
+	int carry;
 
-    file.open(src);
-    if (!file.is_open()) {
-        return ERROR;
-    }
+	file.open(src);
+	if (!file.is_open()) {
+		return ERROR;
+	}
 
-    file >> carry;
+	file >> carry;
 
-    while(!file.eof()) {
-        data.push_back(carry);
-        file >> carry;
-    }
+	while(!file.eof()) {
+		data.push_back(carry);
+		file >> carry;
+	}
 
-    file.close();
+	file.close();
 
-    return 0;
+	return 0;
 }
 
 int data_store(const vector<int> data, string dest)
 {
-    ofstream file;
+	ofstream file;
 
-    file.open(dest);
-    if (!file.is_open()) {
-        return ERROR;
-    }
+	file.open(dest);
+	if (!file.is_open()) {
+		return ERROR;
+	}
 
-    for(int element : data) {
-        file << element << endl;
-    }
+	for(int element : data) {
+		file << element << endl;
+	}
 
-    file.close();
+	file.close();
 
-    return 0;
+	return 0;
 }
 
-void parity_split(const vector<int> data, vector<int> &odd, vector<int> &even) {
-    for(int element : data) {
-        if(element % 2 == 0) {
-            even.push_back(element);
-        }
+void parity_split(const vector<int> data, vector<int> &odd, vector<int> &even)
+{
+	for(int element : data) {
+		if(element % 2 == 0) {
+			even.push_back(element);
+		}
 
-        else odd.push_back(element);
-    }
+		else odd.push_back(element);
+	}
 }

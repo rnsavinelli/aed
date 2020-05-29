@@ -41,53 +41,53 @@ float mean(vector<int> data);
 
 int main(int argc, char **argv)
 {
-    vector<int> data;
+	vector<int> data;
 
-    if (data_load(data ,DATA_PATH) == ERROR) {
-        cout << "An error was produced.." << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_load(data, DATA_PATH) == ERROR) {
+		cout << "An error was produced.." << endl;
+		cout << "Aborting execution." << endl;
+	}
 
-    cout << "Number of read inputs: " << data.size() << endl;
-    cout << "Sum: " << sum(data) << endl;
-    cout << "Mean: " << mean(data) << endl;
+	cout << "Number of read inputs: " << data.size() << endl;
+	cout << "Sum: " << sum(data) << endl;
+	cout << "Mean: " << mean(data) << endl;
 
 	return 0;
 }
 
 int data_load(vector<int> &data, string src)
 {
-    ifstream file;
-    int carry;
+	ifstream file;
+	int carry;
 
-    file.open(src);
-    if (!file.is_open()) {
-        return ERROR;
-    }
+	file.open(src);
+	if (!file.is_open()) {
+		return ERROR;
+	}
 
-    file >> carry;
+	file >> carry;
 
-    while(!file.eof()) {
-        data.push_back(carry);
-        file >> carry;
-    }
+	while(!file.eof()) {
+		data.push_back(carry);
+		file >> carry;
+	}
 
-    file.close();
+	file.close();
 
-    return 0;
+	return 0;
 }
 
 int sum(vector<int> data)
 {
-    int result = 0;
+	int result = 0;
 
-    for (int element : data)
-        result += element;
+	for (int element : data)
+		result += element;
 
-    return result;
+	return result;
 }
 
 float mean(vector<int> data)
 {
-    return (float) sum(data) / data.size();
+	return (float) sum(data) / data.size();
 }

@@ -38,54 +38,55 @@ int min_index(vector<float> data);
 
 int main(int argc, char **argv)
 {
-    vector<float> data;
-    int position = 0;
+	vector<float> data;
+	int position = 0;
 
-    if (data_load(data, DATA_PATH) == ERROR) {
-        cout << "An error was produced.." << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_load(data, DATA_PATH) == ERROR) {
+		cout << "An error was produced.." << endl;
+		cout << "Aborting execution." << endl;
+	}
 
-    position = min_index(data);
+	position = min_index(data);
 
-    cout << "Value: " << data[position] << endl;
-    cout << "Position: " << position << endl;
+	cout << "Value: " << data[position] << endl;
+	cout << "Position: " << position << endl;
 
 	return 0;
 }
 
 int data_load(vector<float> &data, string src)
 {
-    ifstream file;
-    float carry;
+	ifstream file;
+	float carry;
 
-    file.open(src);
-    if (!file.is_open()) {
-        return ERROR;
-    }
+	file.open(src);
+	if (!file.is_open()) {
+		return ERROR;
+	}
 
-    file >> carry;
+	file >> carry;
 
-    while(!file.eof()) {
-        data.push_back(carry);
-        file >> carry;
-    }
+	while(!file.eof()) {
+		data.push_back(carry);
+		file >> carry;
+	}
 
-    file.close();
+	file.close();
 
-    return 0;
+	return 0;
 }
 
-int min_index(vector<float> data) {
-    float temp = data.front();
-    int index = 0;
+int min_index(vector<float> data)
+{
+	float temp = data.front();
+	int index = 0;
 
-    for(float &element : data) {
-        if(element < temp) {
-            temp = element;
-            index = &element - &data.front();
-        }
-    }
+	for(float &element : data) {
+		if(element < temp) {
+			temp = element;
+			index = &element - &data.front();
+		}
+	}
 
-    return index;
+	return index;
 }

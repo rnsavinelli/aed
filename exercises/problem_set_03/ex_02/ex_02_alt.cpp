@@ -37,49 +37,49 @@ int data_load(vector<float> &data, string src);
 
 int main(int argc, char **argv)
 {
-    vector<float> data;
+	vector<float> data;
 
-    if (data_load(data, DATA_PATH) == ERROR) {
-        cout << "An error was produced.." << endl;
-        cout << "Aborting execution." << endl;
-    }
+	if (data_load(data, DATA_PATH) == ERROR) {
+		cout << "An error was produced.." << endl;
+		cout << "Aborting execution." << endl;
+	}
 
-    float min = data[0], element = 0;
-    unsigned long int pos = 0;
+	float min = data[0], element = 0;
+	unsigned long int pos = 0;
 
-    for(unsigned long int i = 0; i < data.size(); i++) {
-        element = data[i];
+	for(unsigned long int i = 0; i < data.size(); i++) {
+		element = data[i];
 
-        if(element < min) {
-            min = element;
-            pos = i;
-        }
-    }
+		if(element < min) {
+			min = element;
+			pos = i;
+		}
+	}
 
-    cout << "Value: " << min << endl;
-    cout << "Position: " << pos << endl;
+	cout << "Value: " << min << endl;
+	cout << "Position: " << pos << endl;
 
 	return 0;
 }
 
 int data_load(vector<float> &data, string src)
 {
-    ifstream file;
-    float carry;
+	ifstream file;
+	float carry;
 
-    file.open(src);
-    if (!file.is_open()) {
-        return ERROR;
-    }
+	file.open(src);
+	if (!file.is_open()) {
+		return ERROR;
+	}
 
-    file >> carry;
+	file >> carry;
 
-    while(!file.eof()) {
-        data.push_back(carry);
-        file >> carry;
-    }
+	while(!file.eof()) {
+		data.push_back(carry);
+		file >> carry;
+	}
 
-    file.close();
+	file.close();
 
-    return 0;
+	return 0;
 }

@@ -56,10 +56,10 @@ int main(int argc, char **argv)
 		cout << "Aborting execution." << endl;
 	}
 
-    output.insert(output.begin(), data_a.begin(), data_a.end());
-    output.insert(output.end(), data_b.begin(), data_b.end());
+	output.insert(output.begin(), data_a.begin(), data_a.end());
+	output.insert(output.end(), data_b.begin(), data_b.end());
 
-    data_store(output, OUTPUT_FILE);
+	data_store(output, OUTPUT_FILE);
 
 	return 0;
 }

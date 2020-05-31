@@ -39,25 +39,26 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    ofstream file;
-    string word;
+	ofstream file;
+	string word;
 	int linesize = 0;
 
-    file.open(FILE_NAME);
-    if(!file.is_open()) {
-        cout << "ERROR: Failed to open the file!" << endl;
-        return -1;
-    }
+	file.open(FILE_NAME);
+	if(!file.is_open()) {
+		cout << "ERROR: Failed to open the file!" << endl;
+		return -1;
+	}
 
-    while(cin >> word) {
-        if((linesize += word.size()) >= SIZE_LIMIT) {
-            file << endl;
-            linesize = word.size();
-        }
-        file << word << " ";
-        linesize += BLANKSPACE_SIZE;
-    }
+	while(cin >> word) {
+		if((linesize += word.size()) >= SIZE_LIMIT) {
+			file << endl;
+			linesize = word.size();
+		}
 
-    file.close();
+		file << word << " ";
+		linesize += BLANKSPACE_SIZE;
+	}
+
+	file.close();
 	return 0;
 }

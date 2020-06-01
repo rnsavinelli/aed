@@ -40,7 +40,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	ofstream file;
-	string word, buffer;
+	string word, *buffer = new(string);
 	int linesize = 0;
 
 	file.open(FILE_NAME);
@@ -51,15 +51,15 @@ int main(int argc, char **argv)
 
 	while(cin >> word) {
 		if((linesize += word.size()) >= SIZE_LIMIT) {
-			buffer += '\n';
+			*buffer += '\n';
 			linesize = word.size();
 		}
 
-		buffer += (word + " ");
+		*buffer += (word + " ");
 		linesize += BLANKSPACE_SIZE;
 	}
 
-	file << buffer;
+	file << *buffer;
 	file.close();
 	return 0;
 }

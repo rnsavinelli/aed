@@ -61,8 +61,8 @@ int data_getMaxValPosition(int32_t buff[], const int length)
 
 int main(int argc, char **argv)
 {
-	int32_t buff[BUFF_LENGTH]; /* will make use of uninitialized values */
-    int max_position;
+    int32_t buff[BUFF_LENGTH]; /* I will put rubbish to a good use */
+    int max_position {};
 
     cout << ":: Printing all initialized values:" << endl;
     data_print(buff, BUFF_LENGTH);

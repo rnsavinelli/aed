@@ -34,7 +34,7 @@
 
 using namespace std;
 
-void data_print(int32_t buff[], const int length)
+void data_print(int buff[], const int length)
 {
     assert(buff);
     for(int i = 0; i < length; i++) {
@@ -42,14 +42,14 @@ void data_print(int32_t buff[], const int length)
     }
 }
 
-/* returns the position of the maximum value in a int32_t array */
-int data_getMaxValPosition(int32_t buff[], const int length)
+/* returns the position of the maximum value inside an array */
+int data_getMaxValPosition(int buff[], const int length)
 {
     assert(buff);
-    int32_t max_val = (1<<31); /* MAX = MIN */
+    int max_val = buff[0];
     int max_pos = 0;
 
-    for(int i = 0; i < length; i++) {
+    for(int i = 1; i < length; i++) {
         if(buff[i] > max_val) {
             max_val = buff[i];
             max_pos = i;
@@ -61,7 +61,7 @@ int data_getMaxValPosition(int32_t buff[], const int length)
 
 int main(int argc, char **argv)
 {
-	int32_t buff[BUFF_LENGTH]; /* will make use of uninitialized values */
+	int buff[BUFF_LENGTH]; /* will make use of uninitialized values */
     int max_position;
 
     cout << ":: Printing all initialized values:" << endl;

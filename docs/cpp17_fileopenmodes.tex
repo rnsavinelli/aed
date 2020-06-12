@@ -1,0 +1,68 @@
+\documentclass[letter]{article}
+
+\usepackage[english]{babel}
+
+\pagenumbering{gobble}
+
+\usepackage[labelfont=bf]{caption} % bold caption label
+
+\usepackage{hyperref}
+
+\hypersetup{
+    pdfauthor = {R. Nicolás Savinelli},
+    pdftitle = {<fsteam> File Opening Modes Combinations in C++ 17},
+}
+
+\usepackage[left=1.8in,top=1.8in,right=1.8in]{geometry}
+
+\title{\bf{\texttt{{\textless}fstream{\textgreater}} File Opening Modes
+Combinations in C++ 17}}
+\author{R. Nicolás Savinelli}
+
+\begin{document}
+
+\maketitle{}
+
+\noindent
+Flags describing the requested input/output mode for a file can be combined with the bitwise OR operator (\textbar). \\
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|cccccc|}
+\hline
+\multicolumn{5}{|c}{\bf{ios\_base flag combination}} & \multicolumn{1}{l|}{\bf{stdio equivalent}} \\
+\texttt{binary} & \texttt{in} & \texttt{out} & \texttt{trunc} & \texttt{app} & \multicolumn{1}{l|}{} \\ \hline
+           &        & +      &          &        & ``\texttt{w}''                                   \\ \hline
+           &        & +      &          & +      & ``\texttt{a}''                                   \\ \hline
+           &        &        &          & +      & ``\texttt{a}''                                   \\ \hline
+           &        & +      & +        &        & ``\texttt{w}''                                   \\ \hline
+           & +      &        &          &        & ``\texttt{r}''                                   \\ \hline
+           & +      & +      &          &        & ``\texttt{r+}''                                  \\ \hline
+           & +      & +      & +        &        & ``\texttt{w+}''                                  \\ \hline
+           & +      & +      &          & +      & ``\texttt{a+}''                                  \\ \hline
+           & +      &        &          & +      & ``\texttt{a+}''                                  \\ \hline
++          &        & +      &          &        & ``\texttt{wb}''                                  \\ \hline
++          &        & +      &          & +      & ``\texttt{ab}''                                  \\ \hline
++          &        &        &          & +      & ``\texttt{ab}''                                  \\ \hline
++          &        & +      & +        &        & ``\texttt{wb}''                                  \\ \hline
++          & +      &        &          &        & ``\texttt{rb}''                                  \\ \hline
++          & +      & +      &          &        & ``\texttt{r+b}''                                 \\ \hline
++          & +      & +      & +        &        & ``\texttt{w+b}''                                 \\ \hline
++          & +      & +      &          & +      & ``\texttt{a+b}''                                 \\ \hline
++          & +      &        &          & +      & ``\texttt{a+b}''                                 \\ \hline
+\hline
+\end{tabular}
+\caption{File opening modes}
+\end{table}
+
+\noindent
+For in-depth descriptions and applied examples of each operator listed on
+this table, please consider consulting: \\
+
+\noindent
+The C++ Programming Language ({\it{4th Edition}}), by Bjarne Stroustrup.
+Addison-Wesley, 2013. ISBN 978-0321563842.\\
+
+\noindent
+\href{https://www.iso.org/standard/68564.html}{ISO/IEC 14882:2017}
+\end{document}

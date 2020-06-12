@@ -115,7 +115,7 @@ int data_getMaxDiffInitPos(int buff[], const int length)
 
 int main(int argc, char **argv)
 {
-	int buff[BUFF_LENGTH] {};
+    int buff[BUFF_LENGTH] {};
     int maxdiff_initpos = 0;
     int maxdiff_val = 0;
 

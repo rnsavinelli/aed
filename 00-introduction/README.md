@@ -118,3 +118,8 @@ int x, y;
 x = 0;
 y = x++; /* x = 1, y = 0 */
 ```
+
+----------------------------------------------
+La información contenida en estos documentos fue extraída de mis notas personales tomadas en UTN FRBA (Universidad Tecnológica Nacional, Facultad Regional de Buenos Aires) para (K1003) Algoritmos y Estructuras de Datas como se dictó en 2020 por el Lic. Eduardo Zúñiga, y hereda la licencia (https://creativecommons.org/licenses/by-sa/4.0/)[BY-SA 4.0] por haberse hecho uso de material, de su autoría, bajo la misma.
+
+R. Nicolás Savinelli, 2020 

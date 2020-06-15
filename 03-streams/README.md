@@ -220,3 +220,8 @@ Los posibles valores de `way` son:
 |ios_base::beg | beginning of the stream |
 |ios_base::cur | current position in the stream |
 |ios_base::end | end of the stream |
+
+----------------------------------------------
+La información contenida en estos documentos fue extraída de mis notas personales tomadas en UTN FRBA (Universidad Tecnológica Nacional, Facultad Regional de Buenos Aires) para (K1003) Algoritmos y Estructuras de Datas como se dictó en 2020 por el Lic. Eduardo Zúñiga, y hereda la licencia [BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) por haberse hecho uso de material, de su autoría, bajo la misma.
+
+R. Nicolás Savinelli, 2020 

@@ -6,5 +6,6 @@ Algoritomos y Estructuras de Datos as taught in 2020, and are provided under an 
 
 ## License
 
-MIT License: https://mit-license.org/ or see the
-[`LICENSE`](https://github.com/rnsavinelli/aed/blob/master/LICENSE) file.
+All material is provided under a MIT License unless otherwise specified.
+
+MIT License: https://mit-license.org/ or see the [`LICENSE`](https://github.com/rnsavinelli/aed/blob/master/LICENSE) file.

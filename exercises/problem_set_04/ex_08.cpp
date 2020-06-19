@@ -34,6 +34,15 @@
 
 using namespace std;
 
+int linsearch(int key, int buff[], const int length)
+{
+    for(int i=0; i < length; i++)
+        if(buff[i] == key)
+            return i;
+
+    return -1; /* if no occurrences */
+}
+
 void data_prompt(int buff[], const int length)
 {
     assert(buff);

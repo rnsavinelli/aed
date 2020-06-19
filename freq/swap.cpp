@@ -1,3 +1,5 @@
+/* See LICENSE for license details. */
+
 #include <iostream>
 
 using namespace std;

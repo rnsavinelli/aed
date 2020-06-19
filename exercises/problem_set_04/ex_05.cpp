@@ -42,21 +42,21 @@ void data_get(int buff[], const int length)
 {
     assert(buff);
 
-    bool flag = false;
+    bool err_flag = false;
 
     cout << "buff[0] = ";
     cin  >> buff[0];
 
     for(int i = 1; i < length; i++) {
         do {
-            if (flag) {
+            if (err_flag) {
                 cout << "Error! "
                      << "Make sure buff[" << i << "] > buff[" << i-1 << "]"
                      << endl;
             }
             cout << "buff[" << i << "] = ";
             cin  >> buff[i];
-        } while((flag = !(buff[i] > buff[i-1])));
+        } while((err_flag = (buff[i] <= buff[i-1])));
     }
     cout << endl;
 }
@@ -69,55 +69,28 @@ void data_print(int buff[], const int length)
     }
 }
 
-int data_getMaxDiff(int buff[], const int length)
+int data_getmaxdiff(int buff[], const int length)
 {
     assert(buff);
 
-    if(length <= 1) {
+    if(length <= 1)
         return buff[0];
-    }
 
-    int max_diff = buff[1] - buff[0];
-    int curr_diff = 0;
+    int fmax = 0;
 
-    for(int i = 2; i < length; i++) {
-        curr_diff = (buff[i] - buff[i-1]);
-        if( curr_diff > max_diff) {
-            max_diff = curr_diff;
+    for(int i = 0; i < length - 1; i++) {
+        if((buff[i+1] - buff[i]) > (buff[1+fmax] - buff[fmax])) {
+            fmax = i;
         }
     }
 
-    return max_diff;
-}
-
-int data_getMaxDiffInitPos(int buff[], const int length)
-{
-    assert(buff);
-
-    if(length <= 1) {
-        return 0;
-    }
-
-    int max_diff = buff[1] - buff[0];
-    int curr_diff = 0;
-    int x_i = 0;
-
-    for(int i = 2; i < length; i++) {
-        curr_diff = (buff[i] - buff[i-1]);
-        if( curr_diff > max_diff) {
-            max_diff = curr_diff;
-            x_i = i-1;
-        }
-    }
-
-    return x_i;
+    return fmax;
 }
 
 int main(int argc, char **argv)
 {
     int buff[BUFF_LENGTH] {};
-    int maxdiff_initpos = 0;
-    int maxdiff_val = 0;
+    int fmax = 0;
 
     cout << ":: Fill-in an array of " << BUFF_LENGTH << " ints with "
          << "strictly increasing values:" << endl;
@@ -126,10 +99,9 @@ int main(int argc, char **argv)
     data_print(buff, BUFF_LENGTH);
 
     cout << endl << ":: Printing maximum diff value:" << endl;
-    maxdiff_val = data_getMaxDiff(buff, BUFF_LENGTH);
-    maxdiff_initpos = data_getMaxDiffInitPos(buff, BUFF_LENGTH);
-    cout << "buff[" << (maxdiff_initpos + 1) << "] - "
-         << "buff[" << maxdiff_initpos << "] = " << maxdiff_val
+    fmax = data_getmaxdiff(buff, BUFF_LENGTH);
+    cout << "buff[" << (fmax + 1) << "] - "
+         << "buff[" << fmax << "] = " << buff[fmax + 1] - buff[fmax]
          << endl;
 
 	return 0;

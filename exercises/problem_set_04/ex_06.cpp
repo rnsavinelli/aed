@@ -81,6 +81,7 @@ min_get(int buff[], const int length, const int function)
             }
             break;
 
+        case N_MINS:
         default:
             for(int i = 1; i < length; i++){
                 if(buff[i] <= min) {

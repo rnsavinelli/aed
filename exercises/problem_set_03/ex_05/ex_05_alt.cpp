@@ -61,6 +61,6 @@ int main(int argc, char **argv)
 
 	file << *buffer;
 	file.close();
-    delete buffer;
+	delete buffer;
 	return 0;
 }

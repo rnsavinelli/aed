@@ -43,7 +43,7 @@ void data_print(int buff[], const int length)
 }
 
 /* returns the position of the maximum value inside an array */
-int data_getMaxValPosition(int buff[], const int length)
+int data_getmax(int buff[], const int length)
 {
     assert(buff);
     int max_val = buff[0];
@@ -61,19 +61,14 @@ int data_getMaxValPosition(int buff[], const int length)
 
 int main(int argc, char **argv)
 {
-<<<<<<< HEAD
-	int buff[BUFF_LENGTH]; /* will make use of uninitialized values */
-    int max_position;
-=======
-    int32_t buff[BUFF_LENGTH]; /* I will put rubbish to a good use */
+	int buff[BUFF_LENGTH]; /* I will make use of uninitialized values */
     int max_position {};
->>>>>>> 0310e6c857795b9179819449173dd8a0e9318e98
 
     cout << ":: Printing all initialized values:" << endl;
     data_print(buff, BUFF_LENGTH);
 
     cout << ":: Printing maximum value:" << endl;
-    max_position = data_getMaxValPosition(buff, BUFF_LENGTH);
+    max_position = data_getmax(buff, BUFF_LENGTH);
     cout << "buff[" << max_position << "] = " << buff[max_position]
          << endl;
 

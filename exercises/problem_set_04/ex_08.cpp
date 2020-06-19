@@ -36,58 +36,58 @@ using namespace std;
 
 int linsearch(int key, int buff[], const int length)
 {
-    for(int i=0; i < length; i++)
-        if(buff[i] == key)
-            return i;
+	for(int i=0; i < length; i++)
+		if(buff[i] == key)
+			return i;
 
-    return -1; /* if no occurrences */
+	return -1; /* if no occurrences */
 }
 
 void data_prompt(int buff[], const int length)
 {
-    assert(buff);
+	assert(buff);
 
-    bool flag = false;
+	bool flag = false;
 
-    for(int i = 0; i < length; i++) {
-        do {
-            cout << "buff[" << i << "] = ";
-            cin >> buff[i];
+	for(int i = 0; i < length; i++) {
+		do {
+			cout << "buff[" << i << "] = ";
+			cin >> buff[i];
 
-            for(int j = 0; j < i; j++) {
-                if(buff[j] == buff[i]) {
-                    cout << endl << "[ERROR]\tVerify your input and try again:"
-                         << endl;
-                    cout << "\tbuff[" << i << "] = buff[" << j
-                         << "] = " << buff[j] << endl << endl;
-                    flag = true;
-                    break;
-                }
+			for(int j = 0; j < i; j++) {
+				if(buff[j] == buff[i]) {
+					cout << endl << "[ERROR]\tVerify your input and try again:"
+					     << endl;
+					cout << "\tbuff[" << i << "] = buff[" << j
+					     << "] = " << buff[j] << endl << endl;
+					flag = true;
+					break;
+				}
 
-                else
-                    flag = false;
-            }
-        } while(flag);
-    }
+				else
+					flag = false;
+			}
+		} while(flag);
+	}
 }
 
 void data_print(int buff[], const int length)
 {
-    assert(buff);
-    for(int i = 0; i < length; i++) {
-        cout << "buff[" << i << "] = " << buff[i] << endl;
-    }
+	assert(buff);
+	for(int i = 0; i < length; i++) {
+		cout << "buff[" << i << "] = " << buff[i] << endl;
+	}
 }
 
 int main(int argc, char **argv)
 {
 	int buff[BUFF_LENGTH] {};
 
-    cout << ":: Fill-in the buffer with " << BUFF_LENGTH
-         << " different values." << endl << endl;
-    data_prompt(buff, BUFF_LENGTH);
-    cout << endl << ":: Stored values:" << endl << endl;
-    data_print(buff, BUFF_LENGTH);
+	cout << ":: Fill-in the buffer with " << BUFF_LENGTH
+	     << " different values." << endl << endl;
+	data_prompt(buff, BUFF_LENGTH);
+	cout << endl << ":: Stored values:" << endl << endl;
+	data_print(buff, BUFF_LENGTH);
 
 	return 0;
 }

@@ -6,8 +6,8 @@ using namespace std;
 
 void swap(int buff[], const int i, const int j)
 {
-    int foo = buff[i];
+	int foo = buff[i];
 
-    buff[i] = buff[j];
-    buff[j] = foo;
+	buff[i] = buff[j];
+	buff[j] = foo;
 }

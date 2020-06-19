@@ -7,13 +7,13 @@ using namespace std;
 
 int data_getmean(int buff[], const int length)
 {
-    assert(buff);
+	assert(buff);
 
-    int sum = 0;
+	int sum = 0;
 
-    for(int i = 0; i < length; i++) {
-        sum+=buff[i];
-    }
+	for(int i = 0; i < length; i++) {
+		sum+=buff[i];
+	}
 
-    return sum/length;
+	return sum/length;
 }

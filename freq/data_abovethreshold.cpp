@@ -7,11 +7,11 @@ using namespace std;
 
 int data_abovethreshold(float buff[], const int length, const float thr)
 {
-    assert(buff);
-    int n = 0;
+	assert(buff);
+	int n = 0;
 
-    for(int i = 0; i < length; i++)
-        if(buff[i] > thr) n++;
+	for(int i = 0; i < length; i++)
+		if(buff[i] > thr) n++;
 
-    return n;
+	return n;
 }

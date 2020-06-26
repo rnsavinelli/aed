@@ -16,11 +16,14 @@ void swap(int buff[], const int i, const int j)
 void data_sort(int buff[], const int length)
 {
 	assert(buff);
+    bool disordered = true;
 
-	for(int i = 0; i < length; i++) {
+	for(int i = 0; i < length && disordered; i++) {
+        disordered = false;
 		for(int j = 0; j < length - 1; j++) {
 			if(buff[j] > buff[j+1]) {
 				swap(buff, j, j+1);
+                disordered = true;
 			}
 		}
 	}

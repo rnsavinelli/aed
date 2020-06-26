@@ -1,4 +1,4 @@
-# [AED](https://github.com/rnsavinelli/aed) | Clase 05 - Búsqueda Binaria
+# [AED](https://github.com/rnsavinelli/aed) | Búsqueda Binaria
 
 Sobre árboles binarios, su implementación, y el algoritmo de búsqueda binaria.
 
@@ -10,9 +10,9 @@ definición teórica[<sup>1</sup>](https://es.wikipedia.org/wiki/%C3%81rbol_bina
 
 ![Grafo de un árbol binario de tamaño 9, alto 3 y raíz con valor igual a  2](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/192px-Binary_tree.svg.png)
 
-Por norma general, cada hijo es un puntero y se los denomina hijo izquierdo y derecho. En C/C++ un árbol binario suele declararse de la siguiente manera:
+Por definición, cada hijo es un puntero y se los denomina hijo izquierdo y derecho. En C/C++ un árbol binario suele declararse de la siguiente manera:
 
-```
+```cpp
 struct node {
     int key;
     structnode *left;   /* left child */
@@ -23,7 +23,7 @@ struct node {
 Alternativamente, se lo puede declarar como un arreglo de punteros donde el
 número de hijos, normalmente igual a dos, es variable. Este enfoque permite, además, el recorrido recursivo de tódos los hijos de un nodo.
 
-```
+```cpp
 #define NUM_CHILDREN (2)
 
 structnode {

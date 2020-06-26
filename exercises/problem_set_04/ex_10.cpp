@@ -48,7 +48,7 @@ void data_print(unsigned int buff[], unsigned const int size)
 {
     assert(buff);
     for(unsigned int i = 0; i < size; i++) {
-        cout << i+1 << "Team " << i << " scoring " << buff[i] << endl;
+        cout << i+1 << "- Team " << i << " scoring " << buff[i] << endl;
     }
 }
 
@@ -61,7 +61,7 @@ insertionSort(unsigned int buff[], unsigned const int size)
     while(i < size) {
         unsigned int j = i;
 
-        while(j > 0 && buff[j-1] > buff[j]) {
+        while(j > 0 && buff[j-1] < buff[j]) {
             swap(buff[j], buff[j-1]);
             j--;
         }

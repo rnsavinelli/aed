@@ -6,17 +6,19 @@
 
 using namespace std;
 
-int sum(vector<int> data)
+int
+sum(vector<int> data)
 {
-	int result = 0;
+    int result = 0;
 
-	for (int element : data)
-		result += element;
+    for (int element : data)
+        result += element;
 
-	return result;
+    return result;
 }
 
-float mean(vector<int> data)
+float
+mean(vector<int> data)
 {
-	return (float) sum(data) / data.size();
+    return (float) sum(data) / data.size();
 }

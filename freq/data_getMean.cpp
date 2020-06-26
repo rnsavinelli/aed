@@ -5,13 +5,16 @@
 
 using namespace std;
 
-void
-data_prompt(int buff[], unsigned const int size)
+int
+data_getMean(int buff[], const int size)
 {
     assert(buff);
 
+    int sum = 0;
+
     for(int i = 0; i < size; i++) {
-        cout << "buff[" << i << "] = ";
-        cin >> buff[i];
+        sum += buff[i];
     }
+
+    return sum/size;
 }

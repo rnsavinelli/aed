@@ -5,10 +5,12 @@
 
 using namespace std;
 
-void data_print(int buff[], const int length)
+void
+data_print(int buff[], unsigned const int size)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = " << buff[i] << endl;
-	}
+    assert(buff);
+
+    for(int i = 0; i < size; i++) {
+        cout << "buff[" << i << "] = " << buff[i] << endl;
+    }
 }

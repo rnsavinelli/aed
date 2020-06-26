@@ -5,11 +5,12 @@
 
 using namespace std;
 
-int linsearch(int key, int buff[], const int length)
+int
+linsearch(int key, int buff[], unsigned const int size)
 {
-	for(int i=0; i < length; i++)
-		if(buff[i] == key)
-			return i;
+    for(int i=0; i < size; i++)
+        if(buff[i] == key)
+            return i;
 
-	return -1; /* if no occurrences */
+    return -1; /* if no occurrences */
 }

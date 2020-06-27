@@ -36,49 +36,49 @@ using namespace std;
 
 void data_prompt(long int buff[], const int length)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
+    assert(buff);
+    for(int i = 0; i < length; i++) {
 #if VERBOSE
-		cout << "buff[" << i << "] = ";
+        cout << "buff[" << i << "] = ";
 #endif
-		cin >> buff[i];
-	}
+        cin >> buff[i];
+    }
 }
 
 void data_print(long int buff[], const int length)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = " << buff[i] << endl;
-	}
+    assert(buff);
+    for(int i = 0; i < length; i++) {
+        cout << "buff[" << i << "] = " << buff[i] << endl;
+    }
 }
 
 long int data_sum(long int buff[], const int length)
 {
-	assert(buff);
-	long sum = 0;
+    assert(buff);
+    long sum = 0;
 
-	for(int i = 0; i < length; i++) {
-		sum += buff[i];
-	}
+    for(int i = 0; i < length; i++) {
+        sum += buff[i];
+    }
 
-	return sum;
+    return sum;
 }
 
 int main(int argc, char **argv)
 {
-	long int buff[BUFF_LENGTH] {};
+    long int buff[BUFF_LENGTH] {};
 
 #if VERBOSE
-	cout << ":: A buffer of lenght " << BUFF_LENGTH << " was created." << endl;
+    cout << ":: A buffer of lenght " << BUFF_LENGTH << " was created." << endl;
 #endif
-	data_prompt(buff, BUFF_LENGTH);
+    data_prompt(buff, BUFF_LENGTH);
 #if VERBOSE
-	cout << ":: Printing all buffer stored values." << endl;
-	data_print(buff, BUFF_LENGTH);
-	cout << ":: Stored values sum = ";
+    cout << ":: Printing all buffer stored values." << endl;
+    data_print(buff, BUFF_LENGTH);
+    cout << ":: Stored values sum = ";
 #endif
-	cout << data_sum(buff, BUFF_LENGTH) << endl;
+    cout << data_sum(buff, BUFF_LENGTH) << endl;
 
-	return 0;
+    return 0;
 }

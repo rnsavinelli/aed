@@ -64,7 +64,7 @@ getMax(int buff[], unsigned const int size)
 int
 main(int argc, char **argv)
 {
-	int vehicles[N_VEHICLES] {0};
+    int vehicles[N_VEHICLES] {0};
     ifstream file;
 
     file.open(DATA_FILENAME);

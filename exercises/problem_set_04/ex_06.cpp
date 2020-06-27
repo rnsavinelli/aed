@@ -42,83 +42,83 @@ using namespace std;
 void
 data_get(int buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	cout << "buff[0] = ";
-	cin  >> buff[0];
+    cout << "buff[0] = ";
+    cin  >> buff[0];
 
-	for(int i = 1; i < length; i++) {
-		cout << "buff[" << i << "] = ";
-		cin  >> buff[i];
-	}
-	cout << endl;
+    for(int i = 1; i < length; i++) {
+        cout << "buff[" << i << "] = ";
+        cin  >> buff[i];
+    }
+    cout << endl;
 }
 
 int
 min_get(int buff[], const int length, const int function)
 {
-	assert(buff);
+    assert(buff);
 
-	int min = buff[0];
-	int n = 0;
+    int min = buff[0];
+    int n = 0;
 
-	switch(function) {
-	case M_FIRST:
-		for(int i = 1; i < length; i++) {
-			if(buff[i] < min) {
-				min = buff[i];
-				n = i;
-			}
-		}
-		break;
+    switch(function) {
+    case M_FIRST:
+        for(int i = 1; i < length; i++) {
+            if(buff[i] < min) {
+                min = buff[i];
+                n = i;
+            }
+        }
+        break;
 
-	case M_LAST:
-		for(int i = 1; i < length; i++) {
-			if(buff[i] <= min) {
-				min = buff[i];
-				n = i;
-			}
-		}
-		break;
+    case M_LAST:
+        for(int i = 1; i < length; i++) {
+            if(buff[i] <= min) {
+                min = buff[i];
+                n = i;
+            }
+        }
+        break;
 
-	case N_MINS:
-	default:
-		for(int i = 1; i < length; i++) {
-			if(buff[i] <= min) {
-				min = buff[i];
-			}
-		}
+    case N_MINS:
+    default:
+        for(int i = 1; i < length; i++) {
+            if(buff[i] <= min) {
+                min = buff[i];
+            }
+        }
 
-		for(int i = 0; i < length; i++) {
-			if(buff[i] == min) {
-				n++;
-			}
-		}
-		break;
-	}
+        for(int i = 0; i < length; i++) {
+            if(buff[i] == min) {
+                n++;
+            }
+        }
+        break;
+    }
 
-	return n;
+    return n;
 }
 
 int
 main(int argc, char **argv)
 {
-	int buff[BUFF_LENGTH] {};
-	int position = 0;
+    int buff[BUFF_LENGTH] {};
+    int position = 0;
 
-	cout << "Fill-in an array of " << BUFF_LENGTH << " ints:" << endl;
-	data_get(buff, BUFF_LENGTH);
+    cout << "Fill-in an array of " << BUFF_LENGTH << " ints:" << endl;
+    data_get(buff, BUFF_LENGTH);
 
-	cout << "First minimum: ";
-	position = min_get(buff, BUFF_LENGTH, M_FIRST);
-	cout << "buff[" << position << "] = " << buff[position] << endl;
+    cout << "First minimum: ";
+    position = min_get(buff, BUFF_LENGTH, M_FIRST);
+    cout << "buff[" << position << "] = " << buff[position] << endl;
 
-	cout << "Last minimum: ";
-	position = min_get(buff, BUFF_LENGTH, M_LAST);
-	cout << "buff[" << position << "] = " << buff[position] << endl;
+    cout << "Last minimum: ";
+    position = min_get(buff, BUFF_LENGTH, M_LAST);
+    cout << "buff[" << position << "] = " << buff[position] << endl;
 
-	cout << "Number of minima: "
-	     << min_get(buff, BUFF_LENGTH, N_MINS) << endl;
+    cout << "Number of minima: "
+         << min_get(buff, BUFF_LENGTH, N_MINS) << endl;
 
-	return 0;
+    return 0;
 }

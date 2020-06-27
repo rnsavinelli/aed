@@ -38,13 +38,13 @@ using namespace std;
 void
 dataPrompt(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
-		    cout << "m[" << i << "][" << j << "] = ";
-    		cin >> m[i][j];
-	    }
+            cout << "m[" << i << "][" << j << "] = ";
+            cin >> m[i][j];
+        }
 
         if (i != rows - 1) cout << endl;
     }
@@ -53,11 +53,11 @@ dataPrompt(double m[][COLS], unsigned const int rows)
 double
 dataMean(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
     double sum = 0.0;
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
             sum += m[i][j];
         }
@@ -69,21 +69,21 @@ dataMean(double m[][COLS], unsigned const int rows)
 void
 dataPrint(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
-	    	cout << "m[" << i << "][" << j << "] = " << m[i][j] << endl;
+            cout << "m[" << i << "][" << j << "] = " << m[i][j] << endl;
         }
 
         if (i != rows - 1) cout << endl;
-	}
+    }
 }
 
 int
 main(int argc, char **argv)
 {
-	double m[ROWS][COLS] {};
+    double m[ROWS][COLS] {};
 
     cout << ":: Fill in a matrix of doubles with " << ROWS << " rows and "
          << COLS << " columns:" << endl;
@@ -91,5 +91,5 @@ main(int argc, char **argv)
 
     cout << endl << ":: Matrix mean: " << dataMean(m, ROWS) << endl;
 
-	return 0;
+    return 0;
 }

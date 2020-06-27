@@ -40,69 +40,69 @@ using namespace std;
 
 void data_get(int buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	bool err_flag = false;
+    bool err_flag = false;
 
-	cout << "buff[0] = ";
-	cin  >> buff[0];
+    cout << "buff[0] = ";
+    cin  >> buff[0];
 
-	for(int i = 1; i < length; i++) {
-		do {
-			if (err_flag) {
-				cout << "Error! "
-				     << "Make sure buff[" << i << "] > buff[" << i-1 << "]"
-				     << endl;
-			}
-			cout << "buff[" << i << "] = ";
-			cin  >> buff[i];
-		} while((err_flag = (buff[i] <= buff[i-1])));
-	}
-	cout << endl;
+    for(int i = 1; i < length; i++) {
+        do {
+            if (err_flag) {
+                cout << "Error! "
+                     << "Make sure buff[" << i << "] > buff[" << i-1 << "]"
+                     << endl;
+            }
+            cout << "buff[" << i << "] = ";
+            cin  >> buff[i];
+        } while((err_flag = (buff[i] <= buff[i-1])));
+    }
+    cout << endl;
 }
 
 void data_print(int buff[], const int length)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = " << buff[i] << endl;
-	}
+    assert(buff);
+    for(int i = 0; i < length; i++) {
+        cout << "buff[" << i << "] = " << buff[i] << endl;
+    }
 }
 
 int data_getmaxdiff(int buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	if(length <= 1)
-		return buff[0];
+    if(length <= 1)
+        return buff[0];
 
-	int fmax = 0;
+    int fmax = 0;
 
-	for(int i = 0; i < length - 1; i++) {
-		if((buff[i+1] - buff[i]) > (buff[1+fmax] - buff[fmax])) {
-			fmax = i;
-		}
-	}
+    for(int i = 0; i < length - 1; i++) {
+        if((buff[i+1] - buff[i]) > (buff[1+fmax] - buff[fmax])) {
+            fmax = i;
+        }
+    }
 
-	return fmax;
+    return fmax;
 }
 
 int main(int argc, char **argv)
 {
-	int buff[BUFF_LENGTH] {};
-	int fmax = 0;
+    int buff[BUFF_LENGTH] {};
+    int fmax = 0;
 
-	cout << ":: Fill-in an array of " << BUFF_LENGTH << " ints with "
-	     << "strictly increasing values:" << endl;
-	data_get(buff, BUFF_LENGTH);
-	cout << ":: Stored values:" << endl;
-	data_print(buff, BUFF_LENGTH);
+    cout << ":: Fill-in an array of " << BUFF_LENGTH << " ints with "
+         << "strictly increasing values:" << endl;
+    data_get(buff, BUFF_LENGTH);
+    cout << ":: Stored values:" << endl;
+    data_print(buff, BUFF_LENGTH);
 
-	cout << endl << ":: Printing maximum diff value:" << endl;
-	fmax = data_getmaxdiff(buff, BUFF_LENGTH);
-	cout << "buff[" << (fmax + 1) << "] - "
-	     << "buff[" << fmax << "] = " << buff[fmax + 1] - buff[fmax]
-	     << endl;
+    cout << endl << ":: Printing maximum diff value:" << endl;
+    fmax = data_getmaxdiff(buff, BUFF_LENGTH);
+    cout << "buff[" << (fmax + 1) << "] - "
+         << "buff[" << fmax << "] = " << buff[fmax + 1] - buff[fmax]
+         << endl;
 
-	return 0;
+    return 0;
 }

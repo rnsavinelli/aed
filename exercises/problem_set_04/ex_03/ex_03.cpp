@@ -42,75 +42,75 @@ using namespace std;
 
 int data_load(string file_name, float buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	ifstream file;
+    ifstream file;
 
-	file.open(file_name);
+    file.open(file_name);
 
-	if(!file.is_open()) {
-		return ERROR;
-	}
+    if(!file.is_open()) {
+        return ERROR;
+    }
 
-	for(int i = 0; i < length; i++) {
-		file >> buff[i];
-	}
+    for(int i = 0; i < length; i++) {
+        file >> buff[i];
+    }
 
-	file.close();
-	return 0;
+    file.close();
+    return 0;
 }
 
 void data_print(float buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = " << buff[i] << endl;
-	}
+    for(int i = 0; i < length; i++) {
+        cout << "buff[" << i << "] = " << buff[i] << endl;
+    }
 }
 
 float data_getmean(float buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	float sum = 0;
+    float sum = 0;
 
-	for(int i = 0; i < length; i++) {
-		sum+=buff[i];
-	}
+    for(int i = 0; i < length; i++) {
+        sum+=buff[i];
+    }
 
-	return sum/length;
+    return sum/length;
 }
 
 int data_abovethreshold(float buff[], const int length, const float thr)
 {
-	assert(buff);
-	int n = 0;
+    assert(buff);
+    int n = 0;
 
-	for(int i = 0; i < length; i++)
-		if(buff[i] > thr) n++;
+    for(int i = 0; i < length; i++)
+        if(buff[i] > thr) n++;
 
-	return n;
+    return n;
 }
 
 int main(int argc, char **argv)
 {
-	float buff[BUFF_LENGTH] {};
-	float mean {};
+    float buff[BUFF_LENGTH] {};
+    float mean {};
 
-	if(data_load(DATA_FILE, buff, BUFF_LENGTH)) {
-		LOG("ERROR", "Failed to open the file.");
-		LOG("STATUS", "Aborting execution.");
-	}
+    if(data_load(DATA_FILE, buff, BUFF_LENGTH)) {
+        LOG("ERROR", "Failed to open the file.");
+        LOG("STATUS", "Aborting execution.");
+    }
 
-	else {
-		LOG("STATUS", "Data loaded successfully.");
-		cout << "Printing read values:" << endl;
-		data_print(buff, BUFF_LENGTH);
-		mean = data_getmean(buff, BUFF_LENGTH);
-		cout << "Data mean = " << mean << endl;
-		cout << "Data values above the mean = "
-		     << data_abovethreshold(buff, BUFF_LENGTH, mean) << endl;
-	}
-	return 0;
+    else {
+        LOG("STATUS", "Data loaded successfully.");
+        cout << "Printing read values:" << endl;
+        data_print(buff, BUFF_LENGTH);
+        mean = data_getmean(buff, BUFF_LENGTH);
+        cout << "Data mean = " << mean << endl;
+        cout << "Data values above the mean = "
+             << data_abovethreshold(buff, BUFF_LENGTH, mean) << endl;
+    }
+    return 0;
 }

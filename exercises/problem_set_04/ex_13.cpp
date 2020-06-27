@@ -44,13 +44,13 @@ using namespace std;
 void
 dataPrompt(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
-		    cout << "m[" << i << "][" << j << "] = ";
-    		cin >> m[i][j];
-	    }
+            cout << "m[" << i << "][" << j << "] = ";
+            cin >> m[i][j];
+        }
 
         if (i != rows - 1) cout << endl;
     }
@@ -59,12 +59,14 @@ dataPrompt(double m[][COLS], unsigned const int rows)
 struct position
 dataMin(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
-    struct position min {0, 0};
+    struct position min {
+        0, 0
+    };
     double minval = m[0][0];
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
             if (m[i][j] < minval) {
                 minval = m[i][j];
@@ -80,22 +82,24 @@ dataMin(double m[][COLS], unsigned const int rows)
 void
 dataPrint(double m[][COLS], unsigned const int rows)
 {
-	assert(m);
+    assert(m);
 
-	for(unsigned int i = 0; i < rows; i++) {
+    for(unsigned int i = 0; i < rows; i++) {
         for(unsigned int j = 0; j < COLS; j++) {
-	    	cout << "m[" << i << "][" << j << "] = " << m[i][j] << endl;
+            cout << "m[" << i << "][" << j << "] = " << m[i][j] << endl;
         }
 
         if (i != rows - 1) cout << endl;
-	}
+    }
 }
 
 int
 main(int argc, char **argv)
 {
-	double m[ROWS][COLS] {};
-    struct position min {0, 0};
+    double m[ROWS][COLS] {};
+    struct position min {
+        0, 0
+    };
 
     cout << ":: Fill in a matrix of doubles with " << ROWS << " rows and "
          << COLS << " columns:" << endl;
@@ -106,5 +110,5 @@ main(int argc, char **argv)
          << "m[" << min.x << "][" << min.y << "] = "
          << m[min.x][min.y] << endl;
 
-	return 0;
+    return 0;
 }

@@ -35,77 +35,77 @@ using namespace std;
 
 void data_prompt(int buff[], const int length)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = ";
-		cin >> buff[i];
-	}
+    assert(buff);
+    for(int i = 0; i < length; i++) {
+        cout << "buff[" << i << "] = ";
+        cin >> buff[i];
+    }
 }
 
 void data_print(int buff[], const int length)
 {
-	assert(buff);
-	for(int i = 0; i < length; i++) {
-		cout << "buff[" << i << "] = " << buff[i] << endl;
-	}
+    assert(buff);
+    for(int i = 0; i < length; i++) {
+        cout << "buff[" << i << "] = " << buff[i] << endl;
+    }
 }
 
 int get_max(int buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	int max = buff[0];
-	int max_i = 0;
+    int max = buff[0];
+    int max_i = 0;
 
-	for(int i = 1; i < length; i++) {
-		if (buff[i] >= max) {
-			max = buff[i];
-			max_i = i;
-		}
-	}
+    for(int i = 1; i < length; i++) {
+        if (buff[i] >= max) {
+            max = buff[i];
+            max_i = i;
+        }
+    }
 
-	return max_i;
+    return max_i;
 }
 
 int get_prevtomax(int buff[], const int length)
 {
-	assert(buff);
+    assert(buff);
 
-	int max = buff[0];
-	int max_i = 0;
-	int prevmax = buff[0];
-	int prevmax_i = 0;
+    int max = buff[0];
+    int max_i = 0;
+    int prevmax = buff[0];
+    int prevmax_i = 0;
 
-	for(int i = 1; i < length; i++) {
-		if (buff[i] > max) {
-			prevmax = max;
-			prevmax_i = max_i;
-			max = buff[i];
-			max_i = i;
-		}
+    for(int i = 1; i < length; i++) {
+        if (buff[i] > max) {
+            prevmax = max;
+            prevmax_i = max_i;
+            max = buff[i];
+            max_i = i;
+        }
 
-		else if (buff[i] > prevmax) {
-			prevmax = buff[i];
-			prevmax_i = i;
-		}
-	}
+        else if (buff[i] > prevmax) {
+            prevmax = buff[i];
+            prevmax_i = i;
+        }
+    }
 
-	return prevmax_i;
+    return prevmax_i;
 }
 
 int main(int argc, char **argv)
 {
-	int buff[BUFF_LENGTH] {};
-	int pos;
+    int buff[BUFF_LENGTH] {};
+    int pos;
 
-	cout << ":: A buffer of lenght " << BUFF_LENGTH << " was created." << endl;
-	data_prompt(buff, BUFF_LENGTH);
+    cout << ":: A buffer of lenght " << BUFF_LENGTH << " was created." << endl;
+    data_prompt(buff, BUFF_LENGTH);
 
-	pos = get_max(buff, BUFF_LENGTH);
-	cout << ":: max: buff[" << pos << "] = " << buff[pos] << endl;
+    pos = get_max(buff, BUFF_LENGTH);
+    cout << ":: max: buff[" << pos << "] = " << buff[pos] << endl;
 
-	pos = get_prevtomax(buff, BUFF_LENGTH);
-	cout << ":: prevtomax: buff[" << pos << "] = " << buff[pos] << endl;
+    pos = get_prevtomax(buff, BUFF_LENGTH);
+    cout << ":: prevtomax: buff[" << pos << "] = " << buff[pos] << endl;
 
-	return 0;
+    return 0;
 }

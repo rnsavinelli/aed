@@ -36,53 +36,53 @@ using namespace std;
 
 int data_load(vector<double> &data, string src)
 {
-	ifstream file;
-	double carry;
+    ifstream file;
+    double carry;
 
-	file.open(src);
-	if (!file.is_open()) {
-		return ERROR;
-	}
+    file.open(src);
+    if (!file.is_open()) {
+        return ERROR;
+    }
 
-	file >> carry;
+    file >> carry;
 
-	while(!file.eof()) {
-		data.push_back(carry);
-		file >> carry;
-	}
+    while(!file.eof()) {
+        data.push_back(carry);
+        file >> carry;
+    }
 
-	file.close();
+    file.close();
 
-	return 0;
+    return 0;
 }
 
 double data_thresholdmean(vector<double> &data, double thr)
 {
-	double sum = 0;
-	int n = 0;
+    double sum = 0;
+    int n = 0;
 
-	for(double element : data) {
-		if(element > thr) {
-			sum += element;
-			n++;
-		}
-	}
+    for(double element : data) {
+        if(element > thr) {
+            sum += element;
+            n++;
+        }
+    }
 
-	return sum/n;
+    return sum/n;
 }
 
 int main(int argc, char **argv)
 {
-	vector<double> data;
-	double thr;
+    vector<double> data;
+    double thr;
 
-	cout << "Data being read from " << DATA_PATH << endl;
-	if (data_load(data, DATA_PATH) == ERROR) {
-		cout << "An error was produced loading " << DATA_PATH << endl;
-		cout << "Aborting execution." << endl;
-	}
+    cout << "Data being read from " << DATA_PATH << endl;
+    if (data_load(data, DATA_PATH) == ERROR) {
+        cout << "An error was produced loading " << DATA_PATH << endl;
+        cout << "Aborting execution." << endl;
+    }
 
-	cout << "Enter a threshold: ";
-	cin >> thr;
-	cout << "Mean = " << data_thresholdmean(data, thr) << endl;
+    cout << "Enter a threshold: ";
+    cin >> thr;
+    cout << "Mean = " << data_thresholdmean(data, thr) << endl;
 }

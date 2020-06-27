@@ -19,8 +19,6 @@ data_loadFromFile(vector<double> &data, string src)
         return ERROR;
     }
 
-    file >> carry;
-
     while(!file.eof()) {
         data.push_back(carry);
         file >> carry;

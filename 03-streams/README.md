@@ -1,4 +1,4 @@
-# [AED](https://github.com/rnsavinelli/aed) | Clase 03 - Flujos
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Clase 03 - Flujos
 
 Sobre flujos de lectura, escritura y posicionamiento implementando `<fstream>` en
 C++.
@@ -224,4 +224,4 @@ Los posibles valores de `way` son:
 ----------------------------------------------
 La información contenida en estos documentos fue extraída de mis notas personales tomadas en UTN FRBA (Universidad Tecnológica Nacional, Facultad Regional de Buenos Aires) para (K1003) Algoritmos y Estructuras de Datas como se dictó en 2020 por el Lic. Eduardo Zúñiga, y hereda la licencia [BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) por haberse hecho uso de material, de su autoría, bajo la misma.
 
-R. Nicolás Savinelli, 2020 
+R. Nicolás Savinelli, 2020

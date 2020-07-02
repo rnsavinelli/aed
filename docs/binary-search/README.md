@@ -1,4 +1,4 @@
-# [AED](https://github.com/rnsavinelli/aed) | Búsqueda Binaria
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Búsqueda Binaria
 
 Sobre árboles binarios, su implementación en C/C++, y el algoritmo de búsqueda binaria.
 

@@ -75,7 +75,7 @@ treeSearch(int key, int arr[], int size)
 	int high = size - 1;
 
 	while (low <= high) {
-        /* https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html */
+        	/* https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html */
 		mid = inf + ((high - low) / 2);
 
 		if (arr[mid] == key)

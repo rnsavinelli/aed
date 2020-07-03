@@ -66,16 +66,18 @@ main(int argc, char **argv)
 {
     int vehicles[N_VEHICLES] {0};
     ifstream file;
+    int temp;
 
     file.open(DATA_FILENAME);
     if (!file.is_open()) {
         return ERROR;
     }
 
+    file >> temp;
+
     while(!file.eof()) {
-        int temp;
-        file >> temp;
         vehicles[temp - NUMBERING_SHIFT]++;
+        file >> temp;
     }
 
     file.close();

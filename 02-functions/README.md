@@ -1,4 +1,4 @@
-# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Clase 02 - Funciones
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Unidad 02 - Funciones
 
 Sobre funciones, pasaje por valor, pasaje por referencia, *scope* y
 recursividad.

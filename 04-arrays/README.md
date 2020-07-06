@@ -1,4 +1,4 @@
-# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Clase 04 - Arreglos
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Unidad 04 - Arreglos
 
 Sobre arreglos, matrices y su implementación en funciones.
 

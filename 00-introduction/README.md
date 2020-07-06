@@ -1,4 +1,4 @@
-# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Clase 00 - Introducción
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Unidad 00 - Introducción
 
 Sobre definiciones de algoritmo, dato, estructuras de datos, variables y
 operadores en C++.

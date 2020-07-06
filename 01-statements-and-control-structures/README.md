@@ -1,4 +1,4 @@
-# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Clase 01 - Sentencias
+# [AED](https://rnsavinelli.github.io/files/notes/algorithms_and_data_structures/ads.html) | Unidad 01 - Sentencias
 
 Sobre sentencias simples y compuestas, estructuras de control, diagramas Nassi-Shneiderman.
 

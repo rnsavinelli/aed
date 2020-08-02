@@ -1,0 +1,6 @@
+bicicleta
+campera
+cantimplora
+casco
+funda
+mochila

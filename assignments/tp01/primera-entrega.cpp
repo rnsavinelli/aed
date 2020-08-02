@@ -38,7 +38,7 @@
 
 using namespace std;
 
-/* ESTRUCTURAS CON UTILIDAD GENERICA */
+/* ESTRUCTURAS CON UTILIDAD GENÉRICA */
 struct answer {
     float value;
     string description;
@@ -57,7 +57,7 @@ struct vectordata {
 
 int main(void)
 {
-    /* CATALOGO ***************************************************************
+    /* CATÁLOGO ***************************************************************
      * ************************************************************************/
 
     string products[N_PRODUCTS]
@@ -65,7 +65,7 @@ int main(void)
 
     /* products[N_PRODUCTS] almacena en un vector de strings los productos
      * del archivo "products.txt" en el orden en que son leídos.
-     *
+
      * colours[N_COLOURS] almacena en un vector de strings los colores del
      * archivo "colours.txt" en el orden en que son leídos. */
 
@@ -75,6 +75,7 @@ int main(void)
      * producto-color posibles en una matriz de strings.
      * Esto es, suponiendo la posición (i, j) tenemos:
      * products_and_colours[i][j] == "producto_i color_j"
+     
      * ************************************************************************/
 
     /* DATOS DE PRODUCCIÓN ****************************************************
@@ -93,6 +94,7 @@ int main(void)
      * cantidad de lotes de producción para cada combinación producto-color.
      * Es decir, por cada ocurrencia de "cantidad producida" de un combinación,
      * se incrementa en uno la misma significando los lotes.
+     
      * ************************************************************************/
 
     return 0;

@@ -36,16 +36,17 @@ swapFirstTwoElements(Node<T>* &stack) {
     }
 }
 
-int main(int argc, char *argv[]) {
-    Node<int> *stack = nullptr;
+int 
+main(int argc, char *argv[]) {
+    Node<string> *stack = nullptr;
     
-    push(stack, 1);
-    append(stack, 2);    
-    append(stack, 3);
+    push(stack, string("first"));
+    append(stack, string("second"));    
+    append(stack, string("third"));
 
     swapFirstTwoElements(stack);
 
     stackPrint(stack);
 
     return 0;
-}
+}s

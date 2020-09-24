@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AED | Búsqueda Binaria</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://rnsavinelli.github.io/files/markdown/markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="aed-búsqueda-binaria"><a href="https://github.com/rnsavinelli/aed">AED</a> | Búsqueda Binaria</h1>
+<p>Sobre árboles binarios, su implementación en C/C++, y el algoritmo de búsqueda binaria.</p>
+<h2 id="árbol-binario">Árbol Binario</h2>
+<p>Un árbol binario, para su uso en ciencias de la computación, es una estructura de datos compuesta de nodos con una variable denominada <strong>clave</strong> y un máximo de <strong>dos hijos</strong> (ergo de su naturaleza binaria). Por otro lado, y citando la definición teórica<a href="https://es.wikipedia.org/wiki/%C3%81rbol_binario#Definici%C3%B3n_de_teor%C3%ADa_de_grafos"><sup>1</sup></a>, un árbol binario es un grafo conexo, acíclico y no dirigido tal que el grado de cada vértice no es mayor a 2.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/192px-Binary_tree.svg.png" alt="" /><figcaption>Grafo de un árbol binario de tamaño 9, alto 3 y raíz con valor igual a 2</figcaption>
+</figure>
+<p>Por definición, cada hijo es un puntero y se los denomina hijo izquierdo y derecho. En C/C++ un árbol binario suele declararse de la siguiente manera:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">struct</span> node {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="dt">int</span> key;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="kw">struct</span> node *left;   <span class="co">/* left child */</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="kw">struct</span> node *right;  <span class="co">/* right child */</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>};</span></code></pre></div>
+<p>Alternativamente, se lo puede declarar como un arreglo de punteros donde el número de hijos, normalmente igual a dos, es variable. Este enfoque permite, además, el recorrido recursivo de tódos los hijos de un nodo.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#define NUM_CHILDREN </span>(<span class="dv">2</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>structnode {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="dt">int</span> key;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="kw">struct</span> node *child[NUM_CHILDREN];</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>};</span></code></pre></div>
+<p>En lo respectivo a cuál enfoque es mejor utilizar depende sólamente de las preferencias del/los usuarios.</p>
+<p>Si todos los hijos de un nodo almacenan alguna referencia, se dice que está <strong>completo</strong>. Todo nodo con exactamente dos hijos es denominado <strong>nodo interno</strong>.</p>
+<p>Si algún hijo de un nodo tiene como referencia a <code>NULL</code>, se lo denomina <strong>nodo externo</strong>.</p>
+<h2 id="búsqueda-binaria">Búsqueda Binaria</h2>
+<p>Un árbol de búsqueda binaria es un árbol binario en el que cada nodo tiene una clave tal que, la misma, es mayor que todas las claves en el subárbol de su hijo izquierdo y menor que todas las claves en el subárbol de su hijo derecho. Esto permite buscar un nodo utilizando el enfoque de dividir y conquistar:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>structnode *</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>treeSearch(<span class="kw">struct</span> node *root, <span class="dt">int</span> target)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>{</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="cf">while</span>(root != <span class="dv">0</span> &amp;&amp; root-&gt;key != target) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>        <span class="cf">if</span>(root-&gt;key &gt; target) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>            root = root-&gt;left;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>        } <span class="cf">else</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>            root = root-&gt;right;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>        }</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    }</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    <span class="cf">return</span> root;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Su aplicación para con vectores, en vez de nodos, sería:</p>
+<p>Comparar la clave buscada contra el elemento del medio del vector. Si son iguales, entonces, ya se encontró el elemento y la búsqueda finaliza. Si la clave es menor que el elemento del medio, se descarta la mitad superior del vector. En modo similar, si es mayor, la parte inferior se descarta.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="pp">#define NOT_FOUND </span>(-<span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="dt">int</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>treeSearch(<span class="dt">int</span> key, <span class="dt">int</span> arr[], <span class="dt">int</span> size)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>{</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="dt">int</span> low = <span class="dv">0</span>;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    <span class="dt">int</span> high = size - <span class="dv">1</span>;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    <span
+class="co">/* ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html */</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    <span class="cf">while</span> (low &lt;= high) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>        mid = inf + ((high - low) / <span class="dv">2</span>);</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>        <span class="cf">if</span> (arr[mid] == key)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>            <span class="cf">return</span> mid;</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>        <span class="cf">if</span> (arr[mid] &gt; key)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>            high = mid - <span class="dv">1</span>;</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>        <span class="cf">else</span> <span class="co">/* (arr[mid] &lt; clave) */</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>            low = mid + <span class="dv">1</span>;</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>    }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>    <span class="cf">return</span> NOT_FOUND;</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>}</span></code></pre></div>
+
+<footer>
+<hr>
+<p>La información contenida en estos documentos fue extraída de mis notas
+personales tomadas en UTN FRBA (Universidad Tecnológica Nacional, Facultad Regional de Buenos Aires)
+para (K1003) Algoritmos y Estructuras de Datas como se dictó en 2020 por el
+<a href="https://ar.linkedin.com/in/euzkoarima" >Lic. Eduardo Zúñiga</a>, y hereda la licencia BY-SA
+4.0 por haberse hecho uso de material, de su autoría, bajo la misma.</p>
+<p style="text-align:left;">
+<a href='https://rnsavinelli.github.io/'>R. Nicolás Savinelli</a>, 2020
+    <span style="float:right;">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">BY-SA 4.0</a>
+    </span>
+</p>
+</footer>
+
+</body>
+</html>

@@ -26,7 +26,7 @@
 
 using namespace std;
 
-template <typename T> void 
+template <typename T> void
 putThirdElementOnTop(Node<T>* &stack) {
     if (!stackEmpty(stack) && !stackEmpty(stack->next) && !stackEmpty(stack->next->next)) {
         T aux = stack->next->next->data;
@@ -35,18 +35,20 @@ putThirdElementOnTop(Node<T>* &stack) {
     }
 }
 
-int 
+int
 main(int argc, char *argv[]) {
     Node<string> *stack = nullptr;
-    
+
     push(stack, string("first"));
-    append(stack, string("second"));    
+    append(stack, string("second"));
     append(stack, string("third"));
     append(stack, string("fourth"));
 
     putThirdElementOnTop(stack);
 
     stackPrint(stack);
+
+    stackErase(stack);
 
     return 0;
 }

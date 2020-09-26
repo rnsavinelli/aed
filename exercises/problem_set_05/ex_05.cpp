@@ -28,28 +28,21 @@ using namespace std;
 
 template <typename T> Node<T>*
 linkedListsConcatAlternated(Node<T>* &stack1, Node<T>* &stack2) {
-    if (stackEmpty(stack2)) {
-        return stack1;
+    Node<T>* newstack = nullptr;
+    while(!stackEmpty(stack1) && !stackEmpty(stack2)) {
+        append(newstack, pop(stack1));
+        append(newstack, pop(stack2));
     }
-    else if (stackEmpty(stack1)) {
-		return stack2;
-	} else {
-		Node<T>* newstack = nullptr;
-		while(!stackEmpty(stack1) && !stackEmpty(stack2)) {
-                append(newstack, pop(stack1));
-                append(newstack, pop(stack2));
-        }
 
-        while(!stackEmpty(stack1)) {
-            append(newstack, pop(stack1));
-        }
+    while(!stackEmpty(stack1)) {
+        append(newstack, pop(stack1));
+    }
 
-        while(!stackEmpty(stack2)) {
-            append(newstack, pop(stack2));
-        }
+    while(!stackEmpty(stack2)) {
+        append(newstack, pop(stack2));
+    }
 
-        return newstack;
-	}
+    return newstack;
 }
 
 int

@@ -1,6 +1,13 @@
 /*
  * ex_04.cpp
  *
+ * Dada los listas enlazadas programe una función que arme una nueva lista que
+ * contenga la concatenación de los elementos de la primer lista, seguida de
+ * los de la segunda.
+ *   Variante A: las dos listas originales se pierden, es decir, nuestra
+ *               rutina las vacía.
+ *   Variante B: las dos listas originales quedan inalteradas.
+ *
  * Copyright 2020 Roberto Nicolás Savinelli <rnsavinelli@est.frba.utn.edu.ar>
  *
  * This program is free software; you can redistribute it and/or modify

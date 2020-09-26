@@ -24,7 +24,6 @@
  */
 
 #include <iostream>
-#include <algorithm>
 
 #include "./linkedLists/linkedLists.h"
 

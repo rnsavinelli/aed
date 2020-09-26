@@ -8,6 +8,7 @@ template <typename T> struct Node {
 
 template <typename T> void push(Node<T>* &stack, T value);
 template <typename T> T pop(Node<T>* &stack);
+template <typename T> void stackErase(Node<T>* &stack);
 
 template <typename T> int stackEmpty(const Node<T>* stack);
 template <typename T> void append(Node<T>*& stack, T value);

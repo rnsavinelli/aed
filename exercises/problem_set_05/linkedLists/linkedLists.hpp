@@ -3,7 +3,7 @@
 
 #include <cassert>
 
-template <typename T> void 
+template <typename T> void
 push(Node<T>* &stack, T value)
 {
 	Node<T>* e = new Node<T>;
@@ -18,11 +18,11 @@ stackEmpty(const Node<T>* stack)
 	return (stack == nullptr);
 }
 
-template <typename T> T 
+template <typename T> T
 pop(Node<T>* &stack)
 {
 	assert(!stackEmpty(stack));
-	
+
 	T ret = stack->data;
 	Node<T>* s = stack;
 	stack = stack->next;
@@ -30,13 +30,20 @@ pop(Node<T>* &stack)
 	return ret;
 }
 
-template <typename T> void 
+template <typename T> void
+stackErase(Node<T>* &stack) {
+	while (!stackEmpty(stack)) {
+        pop(stack);
+    }
+}
+
+template <typename T> void
 append(Node<T>* &stack, T value)
 {
 	Node<T>* e = new Node<T>;
 	e->data = value;
 	e->next = nullptr;
-	
+
 	if (stackEmpty(stack)) {
 		stack = e;
 	} else {
@@ -47,7 +54,8 @@ append(Node<T>* &stack, T value)
 	}
 }
 
-template <typename T> void stackPrint(Node<T>* stack)
+template <typename T> void
+stackPrint(Node<T>* stack)
 {
 	while (!stackEmpty(stack)) {
 		std::cout << stack->data << std::endl;

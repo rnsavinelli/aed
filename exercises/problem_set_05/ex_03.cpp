@@ -3,6 +3,11 @@
  *
  * Copyright 2020 Roberto Nicolás Savinelli <rnsavinelli@est.frba.utn.edu.ar>
  *
+ * Dada una pila programe un función rot (por rotar) tal que si la lista tiene
+ * al menos 3 elementos ponga el tercero al tope y sino deje inalterada la
+ * pila. Ejemplo, si la tiene 1, 2, 3, 4 luego de llamar a esta función la
+ * pila quedará: 3, 1, 2, 4.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or

@@ -26,7 +26,7 @@
 
 using namespace std;
 
-template <typename T> void 
+template <typename T> void
 swapFirstTwoElements(Node<T>* &stack) {
     if (!stackEmpty(stack) && !stackEmpty(stack->next)) {
         T aux;
@@ -36,17 +36,19 @@ swapFirstTwoElements(Node<T>* &stack) {
     }
 }
 
-int 
+int
 main(int argc, char *argv[]) {
     Node<string> *stack = nullptr;
-    
+
     push(stack, string("first"));
-    append(stack, string("second"));    
+    append(stack, string("second"));
     append(stack, string("third"));
 
     swapFirstTwoElements(stack);
 
     stackPrint(stack);
+
+    stackErase(stack);
 
     return 0;
 }s

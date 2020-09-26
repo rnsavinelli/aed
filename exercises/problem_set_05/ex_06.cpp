@@ -69,8 +69,7 @@ main(int argc, char *argv[]) {
 
     cout << "Enter a word or phrase: ";
     getline(cin, textinput);
-    transform(textinput.begin(), textinput.end(),
-        textinput.begin(), ::tolower);
+    transform(textinput.begin(), textinput.end(), textinput.begin(), ::tolower);
     loadStringToStack(stack, textinput);
 
     cout << "Result: " << isPalindrome(stack) << endl;

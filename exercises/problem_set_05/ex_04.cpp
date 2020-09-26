@@ -26,33 +26,57 @@
 
 using namespace std;
 
-template <typename T> void
-linkedListsConcat(Node<T>* &stack1, Node<T>* stack2) {
-	if (stackEmpty(stack1)) {
-		stack1 = stack2;
-	} else {
-		Node<T>* s = stack1;
-		while (s->next != nullptr)
-			s = s->next;
-		s->next = stack2;
-	}
+template <typename T> Node<T>*
+linkedListsConcatA(Node<T>* &stack1, Node<T>* &stack2) {
+    Node<T>* newstack = nullptr;
+
+    while (stack1 != nullptr) {
+        append(newstack, pop(stack1));
+    }
+    while (stack2 != nullptr) {
+        append(newstack, pop(stack2));
+    }
+
+    return newstack;
+}
+
+template <typename T> Node<T>*
+linkedListsConcatB(Node<T>* stack1, Node<T>* stack2) {
+    Node<T>* newstack = nullptr;
+
+    while (stack1 != nullptr) {
+        append(newstack, stack1->data);
+        stack1 = stack1->next;
+    }
+    while (stack2 != nullptr) {
+        append(newstack, stack2->data);
+        stack2 = stack2->next;
+    }
+
+    return newstack;
 }
 
 int
 main(int argc, char *argv[]) {
     Node<string> *stack1 = nullptr;
-
     push(stack1, string("first"));
     append(stack1, string("second"));
 
     Node<string> *stack2 = nullptr;
-
     append(stack2, string("third"));
     append(stack2, string("fourth"));
 
-    linkedListsConcat(stack1, stack2);
+    Node<string> *stack3 = nullptr;
 
-    stackPrint(stack1);
+    stack3 = linkedListsConcatB(stack1, stack2);
+    stackPrint(stack3);
+    stackErase(stack3);
+
+    cout << endl;
+
+    stack3 = linkedListsConcatA(stack1, stack2);
+    stackPrint(stack3);
+    stackErase(stack3);
 
     return 0;
 }

@@ -26,7 +26,7 @@
 
 using namespace std;
 
-template <typename T> void 
+template <typename T> void
 dupFirstElement(Node<T>* &stack) {
     if (!stackEmpty(stack)) {
         push(stack, (T) stack->data);
@@ -37,11 +37,13 @@ int main(int argc, char *argv[]) {
     Node<int> *stack = nullptr;
 
     push(stack, 1);
-    append(stack, 2);    
+    append(stack, 2);
 
     dupFirstElement(stack);
 
     stackPrint(stack);
+
+    stackErase(stack);
 
     return 0;
 }

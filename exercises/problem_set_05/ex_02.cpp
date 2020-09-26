@@ -1,6 +1,10 @@
 /*
  * ex_02.cpp
  *
+ * Dada una pila programe una función swap que inverta los dos elementos tope.
+ * Si la pila tiene 1, 2, 3 luego de llamar a esta función tendrá 2, 1 , 3.
+ * Si la pila tiene menos de dos elementos la función la deja inalterada.
+ *
  * Copyright 2020 Roberto Nicolás Savinelli <rnsavinelli@est.frba.utn.edu.ar>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -51,4 +55,4 @@ main(int argc, char *argv[]) {
     stackErase(stack);
 
     return 0;
-}s
+}

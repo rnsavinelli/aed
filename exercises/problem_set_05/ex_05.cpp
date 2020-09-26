@@ -1,6 +1,11 @@
 /*
  * ex_05.cpp
  *
+ * Similar al ejercicio anterior (programe solo la variante a) pero en lugar
+ * de concatenar intercale.
+ * Por ejemplo si la primer lista tiene 1, 2, 3 y la segunda lista tiene
+ * 5, 6, 7, 8, 9 la lista resultante debe ser 1, 5, 2, 6, 3, 7, 8, 9.
+ *
  * Copyright 2020 Roberto Nicolás Savinelli <rnsavinelli@est.frba.utn.edu.ar>
  *
  * This program is free software; you can redistribute it and/or modify

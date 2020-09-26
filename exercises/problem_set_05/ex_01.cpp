@@ -34,7 +34,7 @@ using namespace std;
 template <typename T> void
 dupFirstElement(Node<T>* &stack) {
     if (!stackEmpty(stack)) {
-        push(stack, (T) stack->data);
+        push(stack, stack->data);
     }
 }
 

@@ -37,10 +37,10 @@ template <typename T> Node<T>*
 linkedListsConcatA(Node<T>* &stack1, Node<T>* &stack2) {
     Node<T>* newstack = nullptr;
 
-    while (stack1 != nullptr) {
+    while (!stackEmpty(stack1)) {
         append(newstack, pop(stack1));
     }
-    while (stack2 != nullptr) {
+    while (!stackEmpty(stack2)) {
         append(newstack, pop(stack2));
     }
 
@@ -51,11 +51,11 @@ template <typename T> Node<T>*
 linkedListsConcatB(Node<T>* stack1, Node<T>* stack2) {
     Node<T>* newstack = nullptr;
 
-    while (stack1 != nullptr) {
+    while (!stackEmpty(stack1)) {
         append(newstack, stack1->data);
         stack1 = stack1->next;
     }
-    while (stack2 != nullptr) {
+    while (!stackEmpty(stack2)) {
         append(newstack, stack2->data);
         stack2 = stack2->next;
     }

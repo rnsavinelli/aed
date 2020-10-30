@@ -85,7 +85,7 @@ string readstring(fstream &fs, unsigned int size)
 	return str;
 }
 
-fstream& operator << (fstream &fs, const data_t& data)
+fstream& operator >> (fstream &fs, const data_t& data)
 {
 	fs.write(reinterpret_cast<const char *>(&data.id), sizeof(data.id));
 	writestring(fs, data.client, CLIENT_SIZE);

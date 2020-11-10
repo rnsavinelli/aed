@@ -16,7 +16,7 @@
  * B.   Luego mostrar sin orden los alumnos que han pedido darse de baja.
  *
  * C.   Por último volver a mostrar la lista ordenada de los alumnos
- *      seleccionados sin los quehayan sido dados de baja.
+ *      seleccionados sin los que hayan sido dados de baja.
  *
  * Copyright 2020 Roberto Nicolás Savinelli <rnsavinelli@est.frba.utn.edu.ar>
  *

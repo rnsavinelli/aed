@@ -117,7 +117,6 @@ int main(int argc, char *argv[])
 
     readbin(DATA_FILE, ol, criteriaModels);
     stackPrint(ol);
-
     stackErase(ol);
 
     return 0;

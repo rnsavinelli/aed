@@ -1,0 +1,49 @@
+Listado de ciudades con totales de ventas y cantidades vendidas:
+Ciudad          Ventas  Unidades
+Azul    3       173
+Chivilcoy       3       141
+Mercedes        5       233
+Necochea        4       288
+Saladillo       2       199
+Suipacha        3       237
+
+============================
+Ingrese la ciudad a listar: xxx
+No hay datos de la ciudad xxx
+Ingrese la ciudad a listar: Azul
+Ventas en la ciudad Azul
+Modelo  Cantidad
+Golf    76
+Focus   83
+Golf    14
+
+Ingrese la ciudad a listar: Mercedes
+Ventas en la ciudad Mercedes
+Modelo  Cantidad
+Focus   29
+Corolla 63
+Golf    110
+Corolla 22
+Golf    9
+
+Ingrese la ciudad a listar: Necochea
+Ventas en la ciudad Necochea
+Modelo  Cantidad
+Golf    33
+Golf    103
+Corolla 123
+Focus   29
+
+Ingrese la ciudad a listar: 
+============================
+Ingrese Ciudad: Azul
+Ingrese cantidad mínima: 50
+Ventas en Azul con cantidad mayor a 50: 2
+Ingrese Ciudad: Mercedes
+Ingrese cantidad mínima: 10
+Ventas en Mercedes con cantidad mayor a 10: 4
+Ingrese Ciudad: Necochea
+Ingrese cantidad mínima: 100
+Ventas en Necochea con cantidad mayor a 100: 2
+Ingrese Ciudad: 
+

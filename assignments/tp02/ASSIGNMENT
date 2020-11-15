@@ -1,0 +1,15 @@
+El área de planificación de un puerto recibe un archivo binario con el listado de contenedores a embarcar la próxima semana.
+
+Campos del archivo:
+- Número de muelle (entero 0-4) [pensar la solución como si dijera 0-500]
+- Producto (string almacenado con largo 12)
+- Cantidad de contenedores (int)
+- Buque (string almacenado con largo 16)
+- Bandera (string almacenado con largo 10)
+
+Armar estructura, tal que dado un número de muelle se pueda hacer el siguiente informe de dicho muelle:
+Número de muelle y la cantidad de buques que amarraran en dicho muelle la semana próxima.
+Seguido de: para cada buque (el critero es bandera-buque) se informe primero la cantidad total de contenedores a embarcar y luego, la una lista de producto – cantidad de contenedores. Esta última lista será en orden cronológico (como vino en el archivo).
+
+Haga un ciclo que pregunte por en número de muelle y liste los datos correspondientes. Una vez terminado ese ciclo (entrado EOF) Solicite solo una vez: un muelle, dentro de ese muelle un buque con su bandera, y finalmente el muelle a donde moverlo. Haga las operaciones necesarias para mover el buque al otro muelle. Para comprobar que está todo bien liste los dos muelles involucrados
+nuevamente.

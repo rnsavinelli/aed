@@ -101,14 +101,19 @@ int readbin(string filename, Node<puerto_t>* &ps)
     puerto_t puerto = {0, 0, nullptr};
     buque_t buque = {"", "", 0, nullptr};
     cargamento_t cargamento = {"", 0};
-    while(file >> puerto >> cargamento >> buque) {
-        Node<puerto_t>* plocation = insert_unique(puerto, ps, criteriaMuelles);
-        if(!linear_search(buque, plocation->data.buque, criteriaBanderaBuque)) {
-            plocation->data.n_buques++;
+
+    while(file >> puerto) {
+        if(file >> cargamento) {
+            if (file >> buque) {
+                Node<puerto_t>* plocation = insert_unique(puerto, ps, criteriaMuelles);
+                if(!linear_search(buque, plocation->data.buque, criteriaBanderaBuque)) {
+                    plocation->data.n_buques++;
+                }
+                Node<buque_t>* blocation = insert_unique(buque, plocation->data.buque, criteriaBanderaBuque);
+                blocation->data.total_contenedores += cargamento.n_contenedores;
+                append(blocation->data.cargamento, cargamento);
+            }
         }
-        Node<buque_t>* blocation = insert_unique(buque, plocation->data.buque, criteriaBanderaBuque);
-        blocation->data.total_contenedores += cargamento.n_contenedores;
-        append(blocation->data.cargamento, cargamento);
     }
 
     file.close();

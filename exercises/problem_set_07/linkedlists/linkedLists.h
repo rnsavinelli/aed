@@ -15,6 +15,7 @@ template <typename T> void append(Node<T>*& stack, T value);
 
 template <typename T> void stackPrint(Node<T>* stack);
 
+template <typename T> bool linear_search(T key, Node<T>* statck, int (*criteria)(T, T));
 template <typename T> Node<T>* search(T key, Node<T>* stack, int (*criteria)(T, T));
 template <typename T> void insert(T value, Node<T>* &stack, int (*criteria)(T, T));
 template <typename T> Node<T>* insert_unique(T key, Node<T>* &stack, int (*criteria)(T, T));

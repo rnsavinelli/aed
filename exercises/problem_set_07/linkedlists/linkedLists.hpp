@@ -64,14 +64,24 @@ stackPrint(Node<T>* stack)
 	}
 }
 
+template <typename T> bool
+linear_search(T key, Node<T>* statck, int (*criteria)(T, T))
+{
+	while (!stackEmpty(statck)) {
+		if (criteria(statck->data, key) == 0)
+			return true;
+		statck = statck->next;
+	}
+	return false;
+}
+
 template <typename T> Node<T>*
 search(T key, Node<T>* stack, int (*criteria)(T, T))
 {
-   while (!stackEmpty(stack) && criteria(key, stack->data) > 0) {
+    while (!stackEmpty(stack) && criteria(key, stack->data) > 0)
         stack = stack->next;
-   }
 
-   return !stackEmpty(stack) && criteria(key, stack->data) > 0 ? stack : nullptr;
+    return !stackEmpty(stack) && criteria(key, stack->data) == 0 ? stack : nullptr;
 }
 
 template <typename T> void

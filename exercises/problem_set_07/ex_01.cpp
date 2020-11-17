@@ -30,7 +30,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "linkedLists/linkedLists.h"
+#include "linkedlists/linkedLists.h"
 
 using namespace std;
 

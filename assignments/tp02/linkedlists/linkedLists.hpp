@@ -4,18 +4,18 @@
 #include <cassert>
 
 template <typename T> void
-push(Node<T>* &stack, T value)
+push(Node<T>* &stack, T key)
 {
 	Node<T>* e = new Node<T>;
-	e->data = value;
+	e->data = key;
 	e->next = stack;
 	stack = e;
 }
 
-template <typename T> int
+template <typename T> bool
 stackEmpty(const Node<T>* stack)
 {
-	return (stack == nullptr);
+	return stack == nullptr;
 }
 
 template <typename T> T
@@ -39,10 +39,10 @@ stackErase(Node<T>* &stack)
 }
 
 template <typename T> void
-append(Node<T>* &stack, T value)
+append(Node<T>* &stack, T key)
 {
 	Node<T>* e = new Node<T>;
-	e->data = value;
+	e->data = key;
 	e->next = nullptr;
 
 	if (stackEmpty(stack)) {
@@ -78,18 +78,17 @@ linear_search(T key, Node<T>* statck, int (*criteria)(T, T))
 template <typename T> Node<T>*
 search(T key, Node<T>* stack, int (*criteria)(T, T))
 {
-   while (!stackEmpty(stack) && criteria(key, stack->data) > 0) {
+    while (!stackEmpty(stack) && criteria(key, stack->data) > 0)
         stack = stack->next;
-   }
 
-   return !stackEmpty(stack) && criteria(key, stack->data) > 0 ? stack : nullptr;
+    return !stackEmpty(stack) && criteria(key, stack->data) == 0 ? stack : nullptr;
 }
 
 template <typename T> void
-insert(T value, Node<T>* &stack, int (*criteria)(T, T))
+insert(T key, Node<T>* &stack, int (*criteria)(T, T))
 {
     Node<T>* e = new Node<T>;
-    e->data = value;
+    e->data = key;
     e->next = nullptr;
 
     Node<T>** ps = &stack;

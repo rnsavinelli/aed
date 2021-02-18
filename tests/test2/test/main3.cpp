@@ -1,10 +1,3 @@
-/*
- * ALUMNO: SAVINELLI ROBERTO NICOLAS
- * LEGAJO: 1645407
- * DNI: 41757815
- *
- */
-
 #include <iostream>
 #include <fstream>
 #include <iomanip>

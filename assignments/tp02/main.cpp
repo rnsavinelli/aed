@@ -1,8 +1,15 @@
+/* GRUPO 01
+ *
+ * Tobias Fuentebuena Guardon
+ * Roberto Nicolás Savinelli
+ * José Francisco Terraza
+*/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 
-#include "linkedlists/linkedLists.h"
+#include "linkedlists/linkedlists.h"
 #include "rwstring/rwstring.h"
 
 #define DATA_FILE "data/Datos.bin"
@@ -150,7 +157,8 @@ void first_prompt(Node<puerto_t> *&ps)
 {
     puerto_t tmp;
 
-    cout << "Ingrese muelle a buscar: ";
+    cout << "Ingrese muelle a buscar, para finalizar ingrese EOF o -1."
+        << endl << "Muelle: ";
 
     while (cin >> tmp.muelle)
     {
@@ -168,8 +176,10 @@ void first_prompt(Node<puerto_t> *&ps)
             cout << "Muelle no encontrado." << endl;
         }
         cout << setfill('#') << setw(80) << "#" << endl;
-        cout << "Ingrese muelle a buscar: ";
+        cout << "Muelle: ";
     }
+
+    if (cin.eof()) cin.clear();
 }
 
 void second_prompt(Node<puerto_t> *&ps)
@@ -181,28 +191,20 @@ void second_prompt(Node<puerto_t> *&ps)
     append(origen.buque, buqueAux);
 
     cout << "DATOS PARA MOVER UN REGISTRO: " << endl;
-
-    cout << "Ingrese el muelle de origen: ";
-    cin >> origen.muelle;
-    cin.clear();
-    cin.ignore();
-
-    cout << "Ingrese un buque: ";
-    getline(cin, buqueAux.nombre);
-
-    cout << "Ingrese la bandera de dicho buque: ";
-    getline(cin, buqueAux.bandera);
-
-    append(origen.buque, buqueAux);
-
-    cout << "Ingrese el muelle de destino: ";
+    cout << "Ingrese el muelle de origen (int): ";
+    cin >> origen.muelle; cin.get();
+    cout << "Ingrese un buque (string): ";
+    getline(cin, origen.buque->data.nombre);
+    cout << "Ingrese la bandera de dicho buque (string): ";
+    getline(cin, origen.buque->data.bandera);
+    cout << "Ingrese el muelle de destino (int): ";
     cin >> destino.muelle;
     cin.ignore();
 
     Node<puerto_t> *ptrorigen = search(origen, ps, criteriaMuelles);
     if (!stackEmpty(ptrorigen))
     {
-        Node<buque_t> *ptrbuque = extract(buqueAux, ptrorigen->data.buque, criteriaBanderaBuque);
+        Node<buque_t> *ptrbuque = extract(origen.buque->data, ptrorigen->data.buque, criteriaBanderaBuque);
         if (!stackEmpty(ptrbuque))
         {
             Node<puerto_t> *ptrdestino = search(destino, ps, criteriaMuelles);
@@ -215,8 +217,20 @@ void second_prompt(Node<puerto_t> *&ps)
                 cout << endl << ptrorigen->data << endl;
                 cout << endl << ptrdestino->data;
             }
+            else {
+                cout << "Muelle destino no encontrado." << endl;
+            }
+        }
+        else {
+            cout << "Combinación Buque-Bandera inválida." << endl;
         }
     }
+
+    else {
+        cout << "Muelle origen no encontrado." << endl;
+    }
+
+    stackErase(origen.buque);
 }
 
 int main()
@@ -228,6 +242,8 @@ int main()
     stackPrint(ps);
     cout << setfill('-') << setw(80) << '-' << endl;
     first_prompt(ps);
+    cout << endl;
+    cin.clear();
     cout << setfill('-') << setw(80) << '-' << endl;
     second_prompt(ps);
     cout << setfill('-') << setw(80) << '-' << endl;

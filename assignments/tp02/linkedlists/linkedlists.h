@@ -23,6 +23,6 @@ template <typename T> Node<T>* insert_unique(T key, Node<T>* &stack, int (*crite
 template <typename T> Node<T>* extract(T key, Node<T>* &stack, int (*criteria)(T, T));
 template <typename T> bool remove (T key, Node<T>* &stack, int (*criteria)(T, T));
 
-#include "linkedLists.hpp"
+#include "linkedlists.hpp"
 
 #endif // LINKEDLISTS_H_INCLUDED
